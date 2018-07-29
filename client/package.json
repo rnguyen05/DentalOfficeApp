@@ -3,9 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "less": "^3.8.0",
+    "owl.carousel": "^2.3.4",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-scripts": "1.1.4"
+    "react-native": "^0.56.0",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.4",
+    "tui-calendar": "^1.6.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -13,5 +18,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy":"http://localhost:8000"
+  "proxy": "http://localhost:8000"
 }
