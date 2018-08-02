@@ -7,7 +7,7 @@ import '../css/icon.css';
     const Changeview = props=>(
          
             <div className="Changeview">
-                <div>For test </div>
+                {/* <div>For test </div> */}
                 <span className="dropdown">
                 <button id="dropdownMenu-calendarType"    className="btn btn-default btn-sm dropdown-toggle" 
                 type="button" data-toggle="dropdown"

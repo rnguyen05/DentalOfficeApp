@@ -336,7 +336,7 @@ handleFormSubmit=event=>{
 }
   render() {
     return (
-      <div> 
+      <div className="Calendar"> 
       <Changeview 
       calendarTypeName={this.state.calendarTypeName}
       onClickMenu={this.onClickMenu}
