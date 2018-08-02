@@ -1,0 +1,71 @@
+.appoint {
+  position: fixed;
+  left: 0;
+  top: 20%;
+  text-align: center;
+}
+
+.sidebtn {
+  margin-bottom: 15px;
+  margin-left: -10px;
+  width: 200px;
+  font-family: "Roboto Condensed", sans-serif;
+  box-shadow: 0 6px 4px -3px #000000;
+}
+
+@media screen and (max-width: 991px) {
+  .appoint {
+    position: fixed;
+    left: 0;
+    top: 20%;
+    text-align: center;
+  }
+  .sidebtn {
+    margin-bottom: 15px;
+    margin-left: -10px;
+    width: 150px;
+    font-family: "Roboto Condensed", sans-serif;
+    size: 20pt;
+    box-shadow: 0 6px 4px -3px #000000;
+  }
+}
+@media screen and (max-width: 991px) {
+  .appoint {
+    position: fixed;
+    left: 0;
+    top: 20%;
+    text-align: center;
+  }
+  .sidebtn {
+    margin-bottom: 15px;
+    margin-left: -10px;
+    width: 150px;
+    font-family: "Roboto Condensed", sans-serif;
+    size: 20pt;
+    box-shadow: 0 6px 4px -3px #000000;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 990px) {
+  .appoint {
+    position: fixed;
+    left: 0;
+    top: 10%;
+    text-align: center;
+  }
+  .sidebtn {
+    margin-bottom: 15px;
+    margin-left: -10px;
+    width: 150px;
+    box-shadow: 0 6px 4px -3px #000000;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 400px) {
+  .appoint {
+    display: none;
+  }
+  .sidebtn {
+    display: none;
+  }
+}

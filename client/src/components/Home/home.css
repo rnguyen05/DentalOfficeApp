@@ -1,0 +1,5 @@
+@media (min-width: 320px) and (max-width: 400px) {
+  .alignItem {
+    float: left;
+  }
+}

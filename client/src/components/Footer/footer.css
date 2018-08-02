@@ -1,0 +1,29 @@
+/************* Footer ****************/
+.footer-area {
+  padding-top: 100px;
+  background: url("../../components/img/dentist-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #04091e;
+  color: #fff;
+  padding-bottom: 25px;
+}
+
+.footer-title {
+  font-family: "Francois One", sans-serif;
+  font-size: 18pt;
+}
+
+.footer-address {
+  color: white;
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 15pt;
+}
+
+.fab {
+  color: white;
+}
+
+.fab:hover {
+  color: gray;
+}

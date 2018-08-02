@@ -1,5 +1,175 @@
-body {
+body .aboutus {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background: url("./components/img/dentist-bg.jpg");
+}
+
+h2 {
+  font-family: "Vidaloka", serif;
+}
+
+/* .banner {
+  background-image: url("../img/dentist-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
+.aboutus {
+  color: white;
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 14pt;
+  padding-left: 20px;
+}
+
+.h2-title {
+  font-family: "Francois One", sans-serif;
+  font-size: 30pt;
+  margin-top: 10px;
+}
+
+.mission {
+  margin-bottom: 70px;
+}
+
+.p-mission {
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 20pt;
+}
+
+.network {
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.network2 {
+  width: 80px;
+  height: 40px;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.network3 {
+  width: 130px;
+  height: 40px;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+/************* Services CSS Style *******************/
+.services-title {
+  font-family: "Francois One", sans-serif;
+  font-size: 18pt;
+}
+
+.services-icon {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+}
+
+.services-row {
+  margin-top: 70px;
+}
+
+/***************** Special Program CSS Style *************/
+.loyalty-section {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+body .loyalty-section {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: url("./components/img/loyalty/smile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.loyalty {
+  color: black;
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 15pt;
+  padding: 30px;
+}
+
+/******** Testimonials **********/
+.testi-bg {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: black;
+  /* background: url("./components/img/testimonials/testimonials3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; */
+}
+
+.testi-title {
+  font-family: "Francois One", sans-serif;
+  font-size: 30pt;
+  color: white;
+  text-align: center;
+  padding-top: 50px;
+}
+
+/*************** Contact ***************/
+.contact-address {
+  font-family: "Francois One", sans-serif;
+  font-size: 18pt;
+  padding-left: 30px;
+}
+
+.contact-title {
+  font-family: "Francois One", sans-serif;
+  font-size: 30pt;
+  color: black;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.contact-form-bg {
+  margin-left: 200px;
+  padding: 0;
+  font-family: sans-serif;
+  /* background-color: black; */
+  /* background: url("./components/img/contact/contact.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; */
+}
+
+.contact-bg {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #e9e8e8;
+  /* background: url("./components/img/contact/contact.jpg"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.form-font-color {
+  color: black;
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 15pt;
+  padding: 30px;
+}
+
+.contact-body {
+  color: black;
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 15pt;
+}
+
+.clearfix {
+  padding-top: 30px;
+}
+
+/************* Footer ****************/
+.footer-area {
+  padding-top: 100px;
+  background-color: #04091e;
+  color: #fff;
 }
