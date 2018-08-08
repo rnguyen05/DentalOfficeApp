@@ -1,6 +1,9 @@
 {
   "name": "dentalapp",
   "version": "1.0.0",
+  "engines": {
+    "node": "8.9.4"
+  },
   "description": "Application for Dental Office",
   "main": "server.js",
   "scripts": {
