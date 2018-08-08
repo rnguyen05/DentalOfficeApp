@@ -16,8 +16,10 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
+    // console.log("req.body",req.body);
+    //     .catch(err => res.status(422).json(err));;
     const calendar = {
-        id: req.body.id,
+        // id: req.body.id,
         name: req.body.name,
         checked: req.body.checked,
         color: req.body.color,
