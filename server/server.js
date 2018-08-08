@@ -18,18 +18,27 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(routes);
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/test";
-mongoose.connect(MONGODB_URI);
-const db = mongoose.connection;
+// Database Configuration with Mongoose
+// ---------------------------------------------------------------------------------------------------------------
+// Connect to localhost if not a production environment
+if (process.env.NODE_ENV == "production") {
+  // Gotten using `heroku config | grep MONGODB_URI` command in Command Line
+  mongoose.connect(
+    "mongodb://heroku_v0vnpbfj:73khkido42is3a68sivm9t3vpc@ds263707.mlab.com:63707/heroku_v0vnpbfj"
+  );
+} else {
+  mongoose.connect("mongodb://localhost/dentalapp");
+}
+var db = mongoose.connection;
 
-//Show any mongoose errors
-db.on("error", function(error) {
-  console.log("Mongoose Error: ", error);
+// Show any Mongoose errors
+db.on("error", function(err) {
+  console.log("Mongoose Error: ", err);
 });
 
-//Mongoose connedtion to db
+// Once logged in to the db through mongoose, log a success message
 db.once("open", function() {
-  console.log("Mongoose connection successful!");
+  console.log("Mongoose connection successful.");
 });
 
 // Import the Article model

@@ -32,9 +32,9 @@ import React, { Component } from "react";
 // import glmb from "../img/logos/google-mb.png";
 // import twmb from "../img/logos/twitter-mb.png";
 import "./modals.css";
-import { Row, Col, Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Col, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import Login from "../Login";
-import Signup from "../Signup";
+// import Signup from "../Signup";
 
 //Popup Modal
 class Popup extends Component {

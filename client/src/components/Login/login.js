@@ -4,10 +4,39 @@ import FacebookLogin from "react-facebook-login";
 import { GoogleLogin } from "react-google-login";
 import config from "./config.json";
 
+//Add to parent component
+/*
+constructor(props) {
+    super(props);
+    this.state = {
+      showPopup: false //MODAL
+    };
+  }
+
+  //MODAL
+  togglePopup() {
+    this.setState({
+      showPopup: !this.state.showPopup
+    });
+  }
+
+
+  //Add this button inside return
+<button onClick={this.togglePopup.bind(this)}>show popup</button>
+//Add this to the same section of the button
+{this.state.showPopup ? (
+            <Popup closePopup={this.togglePopup.bind(this)} />
+          ) : null}
+*/
+
 class LoginUser extends Component {
   constructor() {
     super();
-    this.state = { isAuthenticated: false, user: null, token: "" };
+    this.state = {
+      isAuthenticated: false,
+      user: null,
+      token: ""
+    };
   }
 
   logout = () => {

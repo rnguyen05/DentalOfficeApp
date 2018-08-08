@@ -17,6 +17,7 @@ export default class Contact extends Component {
     return (
       <div className="contact-section" id="id-contact">
         <h2 className="clearfix clear-top text-center">Contact Us</h2>
+        <span className="clearfix" />
         <Row>
           <Col className="col-12">
             <Container>
