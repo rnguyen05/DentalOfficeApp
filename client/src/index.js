@@ -1,9 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
-import 'tui-calendar/dist/tui-calendar.min.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import MainRouter from "./MainRouter";
+import registerServiceWorker from "./registerServiceWorker";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "tui-calendar/dist/tui-calendar.min.css";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<MainRouter />, document.getElementById("root"));
 registerServiceWorker();
