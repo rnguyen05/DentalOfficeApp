@@ -15,12 +15,12 @@ class CalendarList extends Component {
     // }
     render(){
         return(
-         <div id="lnb-calendars" onChange={this.props.onChangeCalendars} class="lnb-calendars">
+         <div id="lnb-calendars" onChange={this.props.onChangeCalendars} className="lnb-calendars">
            
-                <div class="lnb-calendars-item">
+                <div className="lnb-calendars-item">
                     <label>
-                        <input class="tui-full-calendar-checkbox-square" 
-                        type="checkbox" value="all" checked />
+                        <input className="tui-full-calendar-checkbox-square" 
+                        type="checkbox" value="all" defaultChecked />
                         <span></span>
                         <strong>View all</strong>
                     </label>

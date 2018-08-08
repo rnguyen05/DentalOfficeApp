@@ -4,8 +4,9 @@ const http = require("http");
 const bodyParser = require("body-parser");
 const routes = require("./server/routes");
 const mongoose = require("mongoose");
-const PORT = process.env.PORT || 8000;
 const app = express();
+const PORT = process.env.PORT || 8000;
+
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
