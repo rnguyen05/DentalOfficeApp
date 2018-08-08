@@ -10,18 +10,20 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
+
     db.dbCalendar
       .findById(req.params.id)
       .then(dbCalendar => res.json(dbCalendar))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    // console.log("req.body",req.body);
+    console.log("req.body create calendar",req.body);
     //     .catch(err => res.status(422).json(err));;
     const calendar = {
         // id: req.body.id,
         name: req.body.name,
         checked: req.body.checked,
+        dragBgColor:req.body.dragBgColor,
         color: req.body.color,
         bgColor: req.body.bgColor,
         borderColor: req.body.borderColor

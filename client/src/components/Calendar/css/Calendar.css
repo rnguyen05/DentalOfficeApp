@@ -139,19 +139,19 @@ body {
   font-weight: normal;
 }
 
-.lnb-calendars-d1 {
+/* .lnb-calendars-d1 {
   padding-left: 8px;
-}
+} */
 
 .lnb-calendars-d1 label {
   font-weight: normal;
 }
 
-.lnb-calendars-item {
+/* .lnb-calendars-item {
   min-height: 14px;
   line-height: 14px;
   padding: 8px 0;
-}
+} */
 
 .lnb-footer {
   color: #999;
@@ -228,4 +228,15 @@ body {
     width: 12px;
     height: 12px;
     margin-right: 2px;
+}
+#lnb-calendars {
+  display:inline-block;
+  width:90%;
+}
+.lnb-calendars-item,.lnb-calendars-d1 {
+  display:inline-block;
+}
+.Changeview {
+  display:inline-block;
+  width:5%; 
 }
