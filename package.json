@@ -6,6 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "react-start": "cd client && yarn start",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build",
     "start": "concurrently \"nodemon server.js\" \"npm run react-start\""
   },
   "repository": {
