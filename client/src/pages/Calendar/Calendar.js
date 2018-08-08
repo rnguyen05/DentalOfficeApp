@@ -7,14 +7,16 @@ import ButtonCreateNewSchedule from '../../components/Calendar/ButtonCreateNewSc
 // import CalendarList from './Calendars';
 import API from '../../utils/API';
 import moment from 'moment';
+import CalendarList from '../../components/Calendar/CalendarList/CalendarList';
 import chance from 'chance';
-
+import {Container, Row, Col} from 'reactstrap';
 import CalendarItem from '../../components/Calendar/CalendarItem/CalendarItem';
-
+import "../../pages/Calendar/Calendar.css";
 class Calendar extends Component {
   state = {
-    calendarTypeName:'DropDown',  
+    calendarTypeName:'week',  
     click:"",   
+    scheduleList:[],
     buttonId:"", 
     calendarList:[],
     today: new Date(),
@@ -26,6 +28,7 @@ class Calendar extends Component {
         scheduleView: true,  // can be also ['allday', 'time']
         useCreationPopup: true,
         useDetailPopup: true,
+        calendars:this.calendarList,
         ScheduleCreationPopup: true,
         range1 : [new Date(2015, 2, 1), new Date(2015, 3, 1)],
         range2 : [1465570800000, 1481266182155], // timestamps
@@ -50,8 +53,8 @@ class Calendar extends Component {
                 return 'All Day';
             },
             time: function(schedule) {
-                return schedule.title + ' <i class="fa fa-refresh"></i>' + schedule.start;
-                // return getTimeTemplate(schedule, true);
+               return schedule.title + ' <i class="fa fa-refresh"></i>' + schedule.start;
+                 //return getTimeTemplate(schedule, true);
             },
             monthGridHeader: function(model) {
                 var date = new Date(model.date);
@@ -83,56 +86,158 @@ class Calendar extends Component {
         )
         .catch(err => console.log(err));
  }
- createSchedule= calendar=>{
-    calendar.createSchedules([
-        {
-            id: '1',
-            calendarId: '1',
-            title: 'my schedule',
-            category: 'time',
-            dueDateClass: '',
-            start: '2018-07-30T22:30:00+09:00',
-            end: '2018-07-31T02:30:00+09:00'
-        },
-        {
-            id: '2',
-            calendarId: '1',
-            title: 'second schedule',
-            category: 'time',
-            dueDateClass: '',
-            start: '2018-08-01T17:30:00+09:00',
-            end: '2018-08-02T17:31:00+09:00'
-        }
-    ]);
-  }
-    componentDidMount(){
+makeScheduleArrayReady = schedulesArr =>{
+    console.log("inside makeScheduleArrayReady",schedulesArr);
+   
+   // console.log("inside makeScheduleArrayReady",schedulesArr);
+    const readySchedulesArr =[];
+   // for(let i=0;i<schedulesArr.length;i++){
+        // console.log("inside  FOR LOOP IN makeScheduleArrayReady");
+        // let tempElement = {
+        //     id:schedulesArr[i]._id,
+        //     calendarId: schedulesArr[i].calendar,
+        //     title: schedulesArr[i].title,
+        //     category: schedulesArr[i].category,
+        //     dueDateClass: '',
+        //     start: schedulesArr[i].start,
+        //     end: schedulesArr[i].end
+        // };
+       // console.log("tempElement",schedulesArr[i]);
+        //readySchedulesArr.push(tempElement);
+    // }
+    // const listItems = schedulesArr.map((d) => console.log("d",d));
+    console.log("inside makeScheduleArrayReady",schedulesArr);
+    for (var key in schedulesArr) {
+        //arr.push(myObject[key]);
+        console.log("element",schedulesArr[key].title);
+      }
+      console.log("inside makeScheduleArrayReady",schedulesArr);
+    schedulesArr.forEach( (element) => 
+        console.log("element",element)
+        // let id=1;
+        // let tempElement = {
+        //     id:element._id,
+        //     calendarId: element.calendar._id,
+        //     title: element.title,
+        //     category: element.category,
+        //     dueDateClass: '',
+        //     start: element.start,
+        //     end: element.end
+        // };
+        // readySchedulesArr.push(tempElement);
+      );
+      return readySchedulesArr;
 
+}
+ createSchedule= (calendar)=>{
+   
+    var flag=false;
+    var schedulesArr=new Array();
+ console.log("API.findAllSchedules()",API.findAllSchedules()) ;
+ let scheduleList= API.findAllSchedules()
+  .then(res=>{
+       console.log("res.data",res.data) ; 
+      
+       for(let i=0;i<res.data.length;i++){
+        
+            let element = res.data[i];
+            console.log("element",element);
+        
+            this.state.calendar.createSchedules([{
+                id: element._id,
+                calendarId: element.calendar._id,
+                title: element.title,
+                // isAllDay: isAllDay,
+                start: element.start,
+                end:  element.end,
+                location: element.location,
+                category:  'time',
+                dueDateClass: '',
+           
+        }]);
+            
+       }
+    
+    });
+   this.setState({scheduleList: scheduleList});
+  
+  }
+  getAllCalendars=()=>{
+    // console.log) 
+    let arr=[];
+    API.getCalendarList()
+    .then(res =>{ 
+        console.log("calendars",res); 
+        
+        res.data.map((element,index)=>{
+           
+            let tempCals = {
+            id: element._id,
+            name: element.name,
+            checked: element.checked,
+            color: element.color,
+            bgColor: element.bgColor,
+            borderColor: element.borderColor
+            };
+            arr.push(tempCals);
+        });
+        
+       console.log("arr",arr);
+        this.setState({calendarList:arr})
+    }
+       
+      )
+      .catch(err => console.log(err));
+     
+   }
+    
+    componentDidMount(){
+       // this.getAllCalendars();
+        // API.createSchedule({
+            
+        // calendar: '5b63c5ac396f5540ec23a1a4',
+        // title: 'my schedule',
+        // category: 'time',
+        // dueDateClass: '',
+        // location:'',
+        // start: '2018-08-03T22:30:00+09:00',
+        // end: '2018-08-04T02:30:00+09:00'
+        // });
+        // API.createSchedule({
+            
+        // calendar: '5b63c5ac396f5540ec23a1a4',
+        // title: 'my 2 schedule',
+        // category: 'time',
+        // dueDateClass: '',
+        // location:'',
+        // start: '2018-08-02T22:30:00+09:00',
+        // end: '2018-08-03T02:30:00+09:00'
+        // });
       this.createSchedule(this.state.calendar);
+      this.getAllCalendars();
      $('#btn-save-schedule').on('click', this.onNewSchedule);
-  //    $('#btn-new-schedule').on('click', this.createNewSchedules);
+
      this.state.calendar.on('beforeCreateSchedule',this.beforeCreateSchedule);
      this.state.calendar.on('clickDayname',this.clickDayname);
      this.state.calendar.on('clickSchedule',this.clickSchedule);
      this.state.calendar.on('beforeUpdateSchedule',this.beforeUpdateSchedule);
-     //window.addEventListener('resize', resizeThrottled);
-     // this.setState({click:$('#btn-save-schedule').on('click', onNewSchedule)}); //.addEventListener('click', this.onNewSchedule);
-    //this.state.calendar.render();
-  
+     this.state.calendar.on('beforeDeleteSchedule',this.beforeDeleteSchedule);
+     
     };
   
     setoptionsandview = (calendar,options,viewName,flag)=>{
          
       if(options){
          this.state.calendar.setOptions(options,true);
-         // calendar.setOptions(options,false);
+       
           console.log("insetoption function",options);
          } ;
-     //  calendar.setOptions(options,flag);
+    
 
        this.state.calendar.changeView(viewName,true);
        console.log("in changeView function",viewName);
        console.log("insetoption function******", this.state.calendar);
-    // return calendar;
+   
   };
   clickDayname = date=>{
     console.log('clickDayname', date);
@@ -149,12 +254,74 @@ class Calendar extends Component {
     var startTime = event.start;
     var endTime = event.end;
     var location = event.schedule.location;
+    var title = event.schedule.title;
     this.state.calendar.updateSchedule(schedule.id, schedule.calendarId, {
         start: startTime,
         end: endTime,
-        location: location
+        location: location,
+        title: title
     });
-    this.state.calendar.render();
+    // id: element._id,
+    // calendarId: element.calendar._id,
+    // title: element.title,
+    // // isAllDay: isAllDay,
+    // start: element.start,
+    // end:  element.end,
+    // category:  'time',
+    // dueDateClass: '',
+    console.log("schedule inside beforeUpdateSchedule",schedule);
+    console.log("title inside beforeUpdateSchedule",title);
+    console.log("endTime inside beforeUpdateSchedule",endTime);
+    console.log("endTime inside beforeUpdateSchedule",endTime);
+    console.log("location inside beforeUpdateSchedule",location);
+    API.updateSchedule({
+            _id:schedule.id,
+           // calendarId: schedule.calendarId,
+            title: title,
+            start: startTime,
+            end: endTime,
+            location: location
+        });
+
+   this.loadScheduleList();
+    //***************************** */
+        // let scheduleList= API.findAllSchedules()
+        // .then(res=>{
+        //      console.log("res.data",res.data) ; 
+            
+        //      for(let i=0;i<res.data.length;i++){
+              
+        //           let element = res.data[i];
+        //           this.state.calendar.createSchedules([{
+        //               id: element._id,
+        //               calendarId: element.calendar._id,
+        //               title: element.title,
+        //               // isAllDay: isAllDay,
+        //               start: element.start,
+        //               end:  element.end,
+        //               location: element.location,
+        //               category:  'time',
+        //               dueDateClass: '',
+                 
+        //       }]);
+                  
+        //      }
+          
+        //   });
+        //  this.setState({scheduleList: scheduleList});
+
+//******************************** */
+
+    // console.log("schedule inside beforeUpdateSchedule",schedule);
+    // console.log("startTime inside beforeUpdateSchedule",startTime.toDate());
+    // console.log("startTime inside beforeUpdateSchedule",startTime._date.toDateString());
+    // console.log("startTime inside beforeUpdateSchedule",startTime._date.toString());
+    // console.log("startTime inside beforeUpdateSchedule",startTime.getTime());
+    // console.log("startTime inside beforeUpdateSchedule",startTime._date.toDateString());
+   // console.log("endTime inside beforeUpdateSchedule",endTime.toString());
+  // this.createSchedule(this.state.calendar);
+//   this.loadScheduleList
+    // this.state.calendar.render();
 }
 beforeCreateSchedule = event=>{
     console.log("event inside beforeCreateSchedule", event);
@@ -313,9 +480,49 @@ getValue = target =>{
    
 }
 
+beforeDeleteSchedule=event=>{
+    console.log("event beforeDeleteSchedule",event);
+    API.deleteSchedule(event.schedule.id);
+    this.state.calendar.deleteSchedule(event.schedule.id,event.schedule.calendarId);
+    this.state.calendar.render('immediately');
+    //this.loadScheduleList();
+
+}
+
 beforeCreateSchedule=event=>{
   console.log("beforeCreateSchedule",event);
+  let temp={
+    calendar: '5b63c5ac396f5540ec23a1a4',
+    title: event.title,
+    category: 'time',
+    dueDateClass: '',
+    location:event.location,
+    start: event.start,
+    end: event.end
+  };
+  console.log("temp",temp);
+  API.createSchedule({
+    calendar: '5b63c5ac396f5540ec23a1a4',
+    title: event.title,
+    category: 'time',
+    dueDateClass: '',
+    location:event.location,
+    start: event.start._date,
+    end: event.end._date
+  });
+  this.loadScheduleList();
+
 }
+    //   {      
+    // calendar: '5b63c5ac396f5540ec23a1a4',
+    // title: 'my schedule',
+    // category: 'time',
+    // dueDateClass: '',
+    // location:'',
+    // start: '2018-08-03T22:30:00+09:00',
+    // end: '2018-08-04T02:30:00+09:00'
+    // });
+// }
 
 createNewSchedule = event =>{
 
@@ -330,25 +537,158 @@ createNewSchedule = event =>{
     });
   }    
 }
+loadScheduleList= ()=>{
+    console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$inside loadScheduleList");
+    this.state.calendar.clear();
+ API.findAllSchedules()
+  .then(res=>{
+       console.log("res.data",res.data) ; 
+      this.setState({scheduleList:res.data});
+       for(let i=0;i<res.data.length;i++){
+        
+            let element = res.data[i];
+            console.log("element",element);
+        
+            this.state.calendar.createSchedules([{
+                id: element._id,
+                calendarId: element.calendar._id,
+                title: element.title,
+                // isAllDay: isAllDay,
+                start: element.start,
+                end:  element.end,
+                location: element.location,
+                category:  'time',
+                dueDateClass: '',
+           
+        }]);
+            
+       }
+    
+    });
+
+
+  //  this.state.calendar.render();
+}
+
 handleFormSubmit=event=>{
   event.preventDefault();
   console.log("enet in test ", event);
 }
+
+onChangeCalendars = event=>{
+    console.log("CALENDAR CALENDAR CHANGE",event);
+    console.log("CALENDAR CALENDAR CHANGE",event.target.value);
+    console.log("CALENDAR CALENDAR checked",event.target.checked);
+    var calendarId = event.target.value;
+    var checked = event.target.checked;
+    console.log("CALENDAR CALENDAR checked",checked);
+    var viewAll = document.querySelector('.lnb-calendars-item input');
+    var calendarElements = Array.prototype.slice.call(document.querySelectorAll('#calendarList input'));
+    var allCheckedCalendars = true;
+
+    if (calendarId === 'all') {
+        allCheckedCalendars = checked;
+
+        calendarElements.forEach(function(input) {
+            var span = input.parentNode;
+            input.checked = checked;
+            span.style.backgroundColor = checked ? span.style.borderColor : 'transparent';
+        });
+
+        this.state.calendarList.forEach(function(calendar) {
+            calendar.checked = checked;
+        });
+    } else {
+       // this.findCalendar(calendarId).checked = checked;
+        let calListTemp = this.state.calendarList;
+        let index = this.findCalendar(calendarId);
+        console.log("index",index);
+        calListTemp[index].checked =checked;
+        console.log("calListTemp",calListTemp);
+        this.setState({calendarList: calListTemp});
+        console.log("calendarList",this.state.calendarList);
+        console.log("INSIDE ",calendarId);
+        allCheckedCalendars = calendarElements.every(function(input) {
+            // let tempCal = 
+            // this.setState({});
+            return input.checked;
+        });
+
+        if (allCheckedCalendars) {
+            viewAll.checked = true;
+        } else {
+            viewAll.checked = false;
+        }
+    }
+}
+
+findCalendar = id=> {
+    var found;
+    var index=0;
+    this.state.calendarList.forEach(function(calendar,i) {
+        if (calendar.id === id) {
+            found = calendar;
+            index=i;
+        }
+    });
+
+    return index;
+}
   render() {
     return (
-      <div className="Calendar"> 
-      <Changeview 
-      calendarTypeName={this.state.calendarTypeName}
-      onClickMenu={this.onClickMenu}
-      />
+        <Row>
+                <CalendarList
+                    calendarList={this.state.calendarList}
+                />
+                                    <Changeview
+                            calendarTypeName={this.state.calendarTypeName}
+                            onClickMenu={this.onClickMenu}
+                        />
+                <Container>
+                    <Row>
+                        {/* <ButtonCreateNewSchedule
+                            createNewSchedule={this.createNewSchedule} /> */}
+                        {/* <div id="calendar"></div> */}
+                        <CalendarItem calendar={this.state.calendar}
+                            scheduleList={this.state.scheduleList}
+                            loadScheduleList={this.loadScheduleList} />
+                    </Row>
+                </Container>
+            
+        </Row>
+
+
+    //     <Container className="col-12">
+            
+    //             <Col className="col-2">
+    //                 <CalendarList 
+    //                 calendarList = {this.state.calendarList}
+                  
+                   
+    //                 />        
+    //             </Col>
+    //             <Col className="col-8">
+    //             <Row>
+    //                     {/* <CalendarList 
+    //                     showCalendars={this.showCalendars}/> */}
+    //                     <Changeview 
+    //                     calendarTypeName={this.state.calendarTypeName}
+    //                     onClickMenu={this.onClickMenu}
+    //                     />
+    //              </Row>
+    //              <Row>       
+    //                     <ButtonCreateNewSchedule   
+    //                     createNewSchedule={this.createNewSchedule}/>
+    //                     {/* <div id="calendar"></div> */}
+    //                     <CalendarItem calendar={this.state.calendar}  
+    //                     scheduleList={this.state.scheduleList} 
+    //                     loadScheduleList={this.loadScheduleList}/>          
+                   
+    //             </Row>
+    //             </Col>
+            
       
-      <ButtonCreateNewSchedule   
-      createNewSchedule={this.createNewSchedule}/>
-      {/* <div id="calendar"></div> */}
-      <CalendarItem calendar={this.state.calendar}   />
-     
-     
-    </div>
+    // </Container>
     );
   }
 }

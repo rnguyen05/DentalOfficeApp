@@ -5,8 +5,11 @@ import '../css/icon.css';
 
 // class Changeview extends Component {
     const CalendarItem = props=>(
-        <div id='calendar' calendar={props.calendar}>
-            
+        <div id='calendar' 
+        calendar={props.calendar} 
+        schedule={props.scheduleList}
+        onChange={props.loadScheduleList}>
+
         </div>
     )
     export default CalendarItem;

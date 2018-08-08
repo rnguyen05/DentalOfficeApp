@@ -9,7 +9,9 @@ import CalendarList from './Calendars';
 import moment from 'moment';
 import chance from 'chance';
 import tuiDatePicker from 'tui-date-picker';
-import './css/tui-calendar.min.css';
+// import './css/tui-calendar.min.css';
+import 'tui-calendar/dist/tui-calendar.min.css';
+import API from "../utils/API";
 
 class Calendar extends Component {
     state={
@@ -27,6 +29,7 @@ class Calendar extends Component {
             useCreationPopup: true,
             useDetailPopup: true,
             ScheduleCreationPopup: true,
+            //calendars: API.get
             range1 : [new Date(2015, 2, 1), new Date(2015, 3, 1)],
             range2 : [1465570800000, 1481266182155], // timestamps
             template: {
@@ -74,7 +77,38 @@ class Calendar extends Component {
 
 }
 
- getTimeTemplate = (schedule, isAllDay)=> {
+   
+
+
+  componentDidMount(){
+        console.log("inside componentdid  mount");
+        this.getAllCalendars();
+        this.createSchedule(this.state.calendar);
+    
+    // API.createCalendar({
+    //     name : 'My Calendar',
+    //     color :'#ffffff',
+    //     bgColor : '#9e5fff',
+    //     dragBgColor : '#9e5fff',
+    //     borderColor : '#9e5fff'
+    // });
+    
+        $('#btn-save-schedule').on('click', this.onNewSchedule);
+//    $('#btn-new-schedule').on('click', this.createNewSchedules);
+        this.state.calendar.on('beforeCreateSchedule',this.beforeCreateSchedule);
+        this.state.calendar.on('clickDayname',this.clickDayname);
+        this.state.calendar.on('clickSchedule',this.clickSchedule);
+        this.state.calendar.on('beforeUpdateSchedule',this.beforeUpdateSchedule);
+
+   // this.setState({click:$('#btn-save-schedule').on('click', onNewSchedule)}); //.addEventListener('click', this.onNewSchedule);
+  //this.state.calendar.render();
+  };
+    getAllCalendars=()=>{
+    // let tempCals =  API.getCalendarList();
+       console.log("calendars",API.getCalendarList());
+   }
+    
+  getTimeTemplate = (schedule, isAllDay)=> {
   
     var html = [];
     var start = moment(schedule.start.toUTCString());
@@ -128,13 +162,13 @@ class Calendar extends Component {
          if(options){
             this.state.calendar.setOptions(options,true);
             // calendar.setOptions(options,false);
-             console.log("insetoption function",options);
+           //  console.log("insetoption function",options);
             } ;
         //  calendar.setOptions(options,flag);
 
           this.state.calendar.changeView(viewName,true);
-          console.log("in changeView function",viewName);
-          console.log("insetoption function******", this.state.calendar);
+        //   console.log("in changeView function",viewName);
+        //   console.log("insetoption function******", this.state.calendar);
        // return calendar;
      };
      changeview = (calendar,viewName,flag)=>{
@@ -142,21 +176,8 @@ class Calendar extends Component {
         return calendar;
      };
 
-   
 
 
-  componentDidMount(){
-
-    this.createSchedule(this.state.calendar);
-   $('#btn-save-schedule').on('click', this.onNewSchedule);
-//    $('#btn-new-schedule').on('click', this.createNewSchedules);
-   this.state.calendar.on('beforeCreateSchedule',this.beforeCreateSchedule);
-   this.state.calendar.on('clickDayname',this.clickDayname);
-   this.state.calendar.on('clickSchedule',this.clickSchedule);
-   this.state.calendar.on('beforeUpdateSchedule',this.beforeUpdateSchedule);
-   // this.setState({click:$('#btn-save-schedule').on('click', onNewSchedule)}); //.addEventListener('click', this.onNewSchedule);
-  //this.state.calendar.render();
-  };
   clickDayname = date=>{
     console.log('clickDayname', date);
   }
@@ -179,6 +200,10 @@ class Calendar extends Component {
     });
     this.state.calendar.render();
 }
+
+
+
+
 beforeCreateSchedule = event=>{
     console.log("event inside beforeCreateSchedule", event);
     var startTime = event.start;
@@ -265,14 +290,14 @@ getValue = target =>{
     
    
     // console.log("this.state.action",this.state.action);
-    console.log("target.value",this.getValue(target));
+   // console.log("target.value",this.getValue(target));
     var action = this.getDataAction(target);
-    console.log("action",action);
+   // console.log("action",action);
  this.setState({value:this.getValue(target)});
- console.log("this.state.value==>",this.state.value);
+ //console.log("this.state.value==>",this.state.value);
   var options = this.state.calendar.getOptions();
     var viewName = '';
-    console.log("options",options);
+   // console.log("options",options);
     this.setState({calendarTypeName:this.getValue(target)})
 
   
@@ -326,8 +351,8 @@ getValue = target =>{
         default:
             break;
     }
-    console.log("options******",options);
-    console.log("viewName******", viewName);
+    // console.log("options******",options);
+    // console.log("viewName******", viewName);
     this.setoptionsandview(this.state.calendar,options,viewName,true);
     // this.setState({
     //     calendar: this.setoptionsandview(this.state.calendar,options,viewName,true)

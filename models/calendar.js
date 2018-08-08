@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const calendarSchems = new Schema({
-    _id: { type: Schema.Types.ObjectId, required: true , alias: 'id'},
+const calendarSchema = new Schema({
+     //id: { type: Schema.Types.ObjectId, required: true },
     name: {type: String, required: true},
     checked: { type: Boolean, default: true },
     color: { type: String,default: '#ffffff' },
@@ -14,6 +14,6 @@ const calendarSchems = new Schema({
     }]
 }, );
 
-const Calendar = mongoose.model("Calendar", calendarSchems);
+const Calendar = mongoose.model("Calendar", calendarSchema);
 
 module.exports = Calendar;

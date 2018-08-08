@@ -7,14 +7,13 @@ import Calendar from "./pages/Calendar";
 import Home from "./pages/Home";
 
 import NoMatch from "./pages/NoMatch";
-
+import 'tui-calendar/dist/tui-calendar.min.css';
 
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        
         <Router>
         <Switch>
         <Route exact path="/" component={Home} />
