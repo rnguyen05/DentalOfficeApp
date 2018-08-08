@@ -65,7 +65,7 @@ export default class Navibar extends Component {
         <div className="nav">
           <NavbarBrand href="/" className="navbrand">
             {<img className="logo" src={Logo} alt="Logo" />}
-            <span className="logo-text">The Dental Studio</span>
+            {/* <span className="logo-text">The Dental Studio</span> */}
           </NavbarBrand>
           {this.props.authenticated ? (
             <p>
