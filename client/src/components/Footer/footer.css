@@ -1,13 +1,4 @@
 /************* Footer ****************/
-.footer-area {
-  padding-top: 100px;
-  background: url("../../components/img/dentist-bg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: #04091e;
-  color: #fff;
-  padding-bottom: 25px;
-}
 
 .footer-title {
   font-family: "Francois One", sans-serif;

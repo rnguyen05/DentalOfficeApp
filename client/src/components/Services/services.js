@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Table } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 import Cd from "../img/services/cd.png";
 import Coa from "../img/services/coa.png";
 import Im from "../img/services/im.png";
@@ -9,72 +9,99 @@ import Rc from "../img/services/rc.png";
 import Sa from "../img/services/sa.png";
 import Sdc from "../img/services/sdc.png";
 import Wtr from "../img/services/wtr.png";
+import "./services.css";
 
 const Services = () => {
   return (
-    <Container>
-      <Table size="sm" borderless className="services-row  text-center">
-        <tbody>
-          <tr>
-            <td>
+    <Container id="id-services">
+      <h2 className="clearfix text-center">Our Services</h2>
+      <Row>
+        <Col className="col-4">
+          <p className="p-services">
+            <a href="preventive">
               <img className="services-icon" src={Pvc} alt="Services" />
-              <p className="services-title ">
-                Preventative <br /> Dentistry
-              </p>
-            </td>
-            <td>
+            </a>
+            <br />
+            Preventative <br /> Dentistry
+          </p>
+        </Col>
+        <Col className="col-4">
+          <p className="p-services">
+            <a href="costmetic">
               <img className="services-icon" src={Cd} alt="Services" />
-              <p className="services-title">
-                Costmetic <br /> Dentistry
-              </p>
-            </td>
-            <td>
+            </a>
+            <br />
+            Costmetic <br /> Dentistry
+          </p>
+        </Col>
+        <Col className="col-4">
+          <p className="p-services">
+            <a href="clearorth">
               <img className="services-icon" src={Coa} alt="Services" />
-              <p className="services-title">
-                Clear Ortho <br /> Aligners
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td>
+            </a>
+            <br />
+            Clear Ortho <br /> Aligners
+          </p>
+        </Col>
+      </Row>
+      <Row>
+        <Col className="col-4">
+          <p className="p-services">
+            <a href="implants">
               <img className="services-icon" src={Im} alt="Services" />
-              <p className="services-title">Implants</p>
-            </td>
-            <td>
+            </a>
+            <br />
+            Implants
+          </p>
+        </Col>
+        <Col className="col-4">
+          <p className="p-services">
+            <a href="sedation">
               <img className="services-icon" src={Sa} alt="Services" />
-              <p className="services-title">
-                Sedation /<br /> Anesthesia
-              </p>
-            </td>
-            <td>
+            </a>
+            <br />
+            Sedation /<br /> Anesthesia
+          </p>
+        </Col>
+        <Col className="col-4">
+          <p className="p-services">
+            <a href="crowns">
               <img className="services-icon" src={Sdc} alt="Services" />
-              <p className="services-title">
-                Same Day <br /> Crowns
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td>
+            </a>
+            <br />
+            Same Day <br /> Crowns
+          </p>
+        </Col>
+      </Row>
+      <Row>
+        <Col className="col-4">
+          <p className="p-services">
+            <a href="oralsurgery">
               <img className="services-icon" src={Ps} alt="Services" />
-              <p className="services-title">
-                Oral <br /> Surgery
-              </p>
-            </td>
-            <td>
+            </a>
+            <br />
+            Oral <br /> Surgery
+          </p>
+        </Col>
+        <Col className="col-4">
+          <p className="p-services">
+            <a href="rootcanals">
               <img className="services-icon" src={Rc} alt="Services" />
-              <p className="services-title">
-                Root <br /> Canals
-              </p>
-            </td>
-            <td>
+            </a>
+            <br />
+            Root <br /> Canals
+          </p>
+        </Col>
+        <Col className="col-4">
+          <p className="p-services">
+            <a href="teethremoval">
               <img className="services-icon" src={Wtr} alt="Services" />
-              <p className="services-title">
-                Wisdom Teeth <br /> Removal
-              </p>
-            </td>
-          </tr>
-        </tbody>
-      </Table>
+            </a>
+            <br />
+            Wisdom Teeth <br /> Removal
+          </p>
+        </Col>
+      </Row>
     </Container>
   );
 };
