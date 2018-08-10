@@ -1,30 +1,5 @@
-//Add to parent component
-/*
-constructor(props) {
-    super(props);
-    this.state = {
-      showPopup: false //MODAL
-    };
-  }
-
-  //MODAL
-  togglePopup() {
-    this.setState({
-      showPopup: !this.state.showPopup
-    });
-  }
-
-
-  //Add this button inside return
-<button onClick={this.togglePopup.bind(this)}>show popup</button>
-//Add this to the same section of the button
-{this.state.showPopup ? (
-            <Popup closePopup={this.togglePopup.bind(this)} />
-          ) : null}
-*/
-
 import React, { Component } from "react";
-// import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 // import fb from "../img/logos/facebook.png";
 // import gl from "../img/logos/google.png";
 // import tw from "../img/logos/twitter.png";
@@ -33,92 +8,189 @@ import React, { Component } from "react";
 // import twmb from "../img/logos/twitter-mb.png";
 import "./modals.css";
 import { Col, Button, Form, FormGroup, Label, Input } from "reactstrap";
-import Login from "../Login";
-// import Signup from "../Signup";
+// import Login from "../Login";
+import FacebookLogin from "react-facebook-login";
+import axios from "axios";
 
 //Popup Modal
 class Popup extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoggedIn: false,
+      userID: "",
+      name: "",
+      email: "",
+      picture: "",
+      password: "",
+      showPopup: false //MODAL
+    };
+  }
+
+  handlerUsernameChanged(event) {
+    this.setState({
+      username: event.target.value
+    });
+  }
+
+  handlerPasswordChanged(event) {
+    this.setState({
+      password: event.target.value
+    });
+  }
+
+  submitForm(event) {
+    event.preventDefault();
+
+    axios
+      .post("/api/user/login", this.state.username, this.state.password)
+      .then(res => {
+        if (res.data.errors) {
+          return this.setState(res.data);
+        } else {
+          localStorage.setItem("jwtAppToken", res.data.token);
+          window.location.href = "/";
+        }
+        return this.setState({
+          userdata: res.data,
+          errors: null,
+          success: true
+        });
+      });
+  }
+
+  isAuthenticated() {
+    const token = localStorage.getItem("jwtAppToken");
+    return token && token.length > 10;
+  }
+
+  responseFacebook = response => {
+    localStorage.setItem("jwtAppToken", response.name);
+    console.log(response);
+
+    this.setState({
+      isLoggedIn: true,
+      userID: response.userID,
+      name: response.name,
+      email: response.email,
+      picture: response.picture.data.url
+    });
+  };
+
+  //MODAL
+  togglePopup() {
+    this.setState({
+      showPopup: !this.state.showPopup
+    });
+  }
+
   render() {
+    let fbContent;
+
+    console.log("user state", this.state);
+    if (this.state.isLoggedIn) {
+      fbContent = (
+        <div
+          style={{
+            width: "200px",
+            margin: "auto",
+            background: "#f4f4f4",
+            padding: "20px"
+          }}
+        >
+          <img src={this.state.picture} alt={this.state.name} />
+          <h6>{this.state.name}</h6>
+          Email: {this.state.email}
+        </div>
+      );
+    } else {
+      fbContent = (
+        <FacebookLogin
+          appId="929702273883725"
+          autoLoad={true}
+          fields="name,email,picture"
+          onClick={this.props.closePopup}
+          callback={this.responseFacebook}
+        />
+      );
+    }
+
     return (
       <div className="popup">
         <div className="popup_inner text-center">
-          <h6 className="h6-white">Please Login</h6>
-          <div className="login-bg">
-            <br />
-            <Login />
-            <br />
-
-            {/*Custom buttons*/}
-            {/* <a href="#">
-              {<img className="login-logo" src={fb} alt="Facebook" />}
-              <Login />
-            </a>
-            <a href="#">
-              {<img className="login-logo" src={gl} alt="Google" />}
-            </a>
-            <a href="#">
-              {<img className="login-logo" src={tw} alt="Twitter" />}
-            </a>
-
-            <Row className="col-12 ml-auto mr-auto ">
-              <Col className="col-3 m-1">
-                <a href="#">
-                  {<img className="login-logomb" src={fbmb} alt="Facebook" />}
-                </a>
-              </Col>
-              <Col className="col-3 m-1">
-                <a href="#">
-                  {<img className="login-logomb" src={glmb} alt="Google" />}
-                </a>
-              </Col>
-              <Col className="col-3 m-1">
-                <a href="#">
-                  {<img className="login-logomb" src={twmb} alt="Twitter" />}
-                </a>
-              </Col> 
-            </Row>*/}
-            <Form className="login-form text-center">
-              <FormGroup row>
-                <Col>
-                  <Label for="UserName">User Name</Label>
-                  <Input
-                    type="email"
-                    name="email"
-                    id="username"
-                    placeholder="your-email@email.com"
-                    required
-                  />
-                </Col>
-              </FormGroup>
-              <FormGroup row>
-                <Col>
-                  <Label for="Password">Password</Label>
-                  <Input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="Enter Password"
-                    required
-                  />
-                </Col>
-              </FormGroup>
-              <Button>Submit</Button>
-            </Form>
-            <br />
-            <span className="modal-footer">
-              <a
-                className="signup"
-                href="/signup#user-reg"
-                onClick={this.props.closePopup}
-              >
-                Register
-              </a>
-              <Button color="danger" onClick={this.props.closePopup}>
-                Close
-              </Button>
-            </span>
-          </div>
+          {this.state.isLoggedIn ? (
+            <div>
+              <h6 className="h6-white">Welcome</h6>
+              <div className="login-bg">
+                <br />
+                <div>{fbContent}</div>
+                <br />
+                <span className="modal-footer">
+                  <Button color="danger" onClick={this.props.closePopup}>
+                    Close
+                  </Button>
+                </span>
+              </div>
+            </div>
+          ) : (
+            <div>
+              <h6 className="h6-white">Please Login</h6>
+              <div className="login-bg">
+                <br />
+                <div>{fbContent}</div>
+                <br />
+                {/*Custom login form*/}
+                <Form
+                  className="login-form text-center"
+                  onSubmit={this.submitForm.bind(this)}
+                >
+                  <FormGroup row>
+                    <Col>
+                      <Label for="UserName">User Name</Label>
+                      <Input
+                        type="email"
+                        name="email"
+                        id="username"
+                        value={this.state.username}
+                        placeholder="your-email@email.com"
+                        onChange={this.handlerUsernameChanged.bind(this)}
+                      />
+                    </Col>
+                  </FormGroup>
+                  <FormGroup row>
+                    <Col>
+                      <Label for="Password">Password</Label>
+                      <Input
+                        type="password"
+                        name="password"
+                        id="password"
+                        value={this.state.password}
+                        placeholder="Enter Password"
+                        onChange={this.handlerPasswordChanged.bind(this)}
+                      />
+                    </Col>
+                  </FormGroup>
+                  <Button>Submit</Button>
+                </Form>
+                <span className="modal-footer">
+                  <a
+                    className="signup"
+                    href="/signup#user-reg"
+                    onClick={this.props.closePopup}
+                  >
+                    Register
+                  </a>
+                  <Button color="danger" onClick={this.props.closePopup}>
+                    Close
+                  </Button>
+                </span>
+              </div>
+            </div>
+          )}
         </div>
+        {this.state.showPopup ? (
+          <Popup closePopup={this.togglePopup.bind(this)} />
+        ) : null}
       </div>
     );
   }

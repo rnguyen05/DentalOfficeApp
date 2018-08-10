@@ -11,14 +11,15 @@ import {
   Button
 } from "reactstrap";
 import "./signup.css";
+import $ from "jquery";
+// const BASE_URL = "https://dentalstudioapp.herokuapp.com/";
 
-class Register extends Component {
+class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
       firstname: "",
       lastname: "",
-      username: "",
       email: "",
       email_con: "",
       password: "",
@@ -28,7 +29,7 @@ class Register extends Component {
       addrone: "",
       addrtwo: "",
       city: "",
-      addrstate: "",
+      addrstate: "CA",
       zipcode: "",
       userdata: null,
       success: false
@@ -44,38 +45,40 @@ class Register extends Component {
   }
   submitHandler(e) {
     e.preventDefault();
-    axios
-      .post("https://dentalstudioapp.herokuapp.com/api/register", this.state)
-      .then(result => {
-        if (result.data.errors) {
-          return this.setState(result.data);
-        }
-        return this.setState({
-          userdata: result.data,
-          errors: null,
-          success: true
-        });
+    axios.post("/api/user/signup", this.state).then(result => {
+      console.log("result sent back from server: ", result);
+      if (result.data.errors) {
+        return this.setState(result.data);
+      } else {
+        localStorage.setItem("jwtAppToken", result.data.token);
+        window.location.href = "/";
+      }
+      return this.setState({
+        userdata: result.data,
+        errors: null,
+        success: true
       });
+    });
   }
   render() {
     return (
       <div className="reg-section" id="user-reg">
         <h2 className="clearfix clear-top text-center">User Registration</h2>
         <br />
-        {this.state.success && <p>You are successfully registerated!</p>}
-        <Row>
+        {this.state.success && <p>You are successfully registered!</p>}
+        <Container>
           <Col className="col-12">
             <Container>
               <Form id="reg-form" onSubmit={this.submitHandler}>
                 <Row>
-                  <Col className="col-12 col-md-6">
+                  <Col className="col-12 col-md-4 col-lg-4">
                     <FormGroup>
                       <Label for="firstname">First Name</Label>
                       <Input
                         type="input"
                         name="firstname"
                         id="firstname"
-                        required
+                        //required
                         onChange={this.changeHandler}
                       />
                       {this.state.errors &&
@@ -84,14 +87,14 @@ class Register extends Component {
                         )}
                     </FormGroup>
                   </Col>
-                  <Col className="col-12 col-md-6">
+                  <Col className="col-12 col-md-4 col-lg-4">
                     <FormGroup>
                       <Label for="firstname">Last Name</Label>
                       <Input
                         type="input"
                         name="lastname"
                         id="lastname"
-                        required
+                        //required
                         onChange={this.changeHandler}
                       />
                       {this.state.errors &&
@@ -102,64 +105,14 @@ class Register extends Component {
                   </Col>
                 </Row>
                 <Row>
-                  <Col className="col-12 col-md-4">
-                    <FormGroup>
-                      <Label for="firstname">Username</Label>
-                      <Input
-                        type="input"
-                        name="username"
-                        id="username"
-                        required
-                        onChange={this.changeHandler}
-                      />
-                      {this.state.errors &&
-                        this.state.errors.username && (
-                          <p>{this.state.errors.username.msg}</p>
-                        )}
-                    </FormGroup>
-                  </Col>
-                  <Col className="col-12 col-md-4">
-                    <FormGroup>
-                      <Label for="password">Password</Label>
-                      <Input
-                        type="password"
-                        name="password"
-                        id="passwordreg"
-                        required
-                        onChange={this.changeHandler}
-                      />
-                      {this.state.errors &&
-                        this.state.errors.password && (
-                          <p>{this.state.errors.password.msg}</p>
-                        )}
-                    </FormGroup>
-                  </Col>
-                  <Col className="col-12 col-md-4">
-                    <FormGroup>
-                      <Label for="password_con">Confirm Password</Label>
-                      <Input
-                        type="password"
-                        name="password_con"
-                        id="password_con"
-                        required
-                        onChange={this.changeHandler}
-                      />
-                      {this.state.errors &&
-                        this.state.errors.password_con && (
-                          <p>{this.state.errors.password_con.msg}</p>
-                        )}
-                    </FormGroup>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col className="col-12 col-md-6">
+                  <Col className="col-12 col-md-4 col-lg-4">
                     <FormGroup>
                       <Label for="email">Email</Label>
                       <Input
                         type="email"
                         name="email"
                         id="email"
-                        required
+                        //required
                         onChange={this.changeHandler}
                       />
                       {this.state.errors &&
@@ -168,14 +121,14 @@ class Register extends Component {
                         )}
                     </FormGroup>
                   </Col>
-                  <Col className="col-12 col-md-6">
+                  <Col className="col-12 col-md-4 col-lg-4">
                     <FormGroup>
                       <Label for="repeatemail">Confirm Email</Label>
                       <Input
                         type="email"
                         name="email_con"
                         id="email_con"
-                        required
+                        //required
                         onChange={this.changeHandler}
                       />
                       {this.state.errors &&
@@ -186,14 +139,49 @@ class Register extends Component {
                   </Col>
                 </Row>
                 <Row>
-                  <Col className="col-12 col-md-6">
+                  <Col className="col-12 col-md-4 col-lg-4">
+                    <FormGroup>
+                      <Label for="password">Password</Label>
+                      <Input
+                        type="password"
+                        name="password"
+                        id="passwordreg"
+                        //required
+                        onChange={this.changeHandler}
+                      />
+                      {this.state.errors &&
+                        this.state.errors.password && (
+                          <p>{this.state.errors.password.msg}</p>
+                        )}
+                    </FormGroup>
+                  </Col>
+                  <Col className="col-12 col-md-4 col-lg-4">
+                    <FormGroup>
+                      <Label for="password_con">Confirm Password</Label>
+                      <Input
+                        type="password"
+                        name="password_con"
+                        id="password_con"
+                        //required
+                        onChange={this.changeHandler}
+                      />
+                      {this.state.errors &&
+                        this.state.errors.password_con && (
+                          <p>{this.state.errors.password_con.msg}</p>
+                        )}
+                    </FormGroup>
+                  </Col>
+                </Row>
+
+                <Row>
+                  <Col className="col-12 col-md-4 col-lg-4">
                     <FormGroup>
                       <Label for="phoneone">Contact No. 1</Label>
                       <Input
                         type="input"
                         name="phoneone"
                         id="phoneone"
-                        required
+                        //required
                         onChange={this.changeHandler}
                       />
                       {this.state.errors &&
@@ -202,14 +190,14 @@ class Register extends Component {
                         )}
                     </FormGroup>
                   </Col>
-                  <Col className="col-12 col-md-6">
+                  <Col className="col-12 col-md-4 col-lg-4">
                     <FormGroup>
                       <Label for="phonetwo">Contact No. 2</Label>
                       <Input
                         type="input"
                         name="phonetwo"
                         id="phonetwo"
-                        required
+                        //required
                         onChange={this.changeHandler}
                       />
                       {this.state.errors &&
@@ -220,14 +208,14 @@ class Register extends Component {
                   </Col>
                 </Row>
                 <Row>
-                  <Col className="col-12 col-md-6">
+                  <Col className="col-12 col-md-4  col-lg-4">
                     <FormGroup>
                       <Label for="addrone">Address Line 1</Label>
                       <Input
                         type="input"
                         name="addrone"
                         id="addrone"
-                        required
+                        //required
                         onChange={this.changeHandler}
                       />
                       {this.state.errors &&
@@ -236,14 +224,13 @@ class Register extends Component {
                         )}
                     </FormGroup>
                   </Col>
-                  <Col className="col-12 col-md-6">
+                  <Col className="col-12 col-md-4  col-lg-4">
                     <FormGroup>
                       <Label for="addrtwo">Address Line 2</Label>
                       <Input
                         type="input"
                         name="addrtwo"
                         id="addrtwo"
-                        required
                         onChange={this.changeHandler}
                       />
                       {this.state.errors &&
@@ -254,14 +241,13 @@ class Register extends Component {
                   </Col>
                 </Row>
                 <Row>
-                  <Col className="col-12 col-md-4">
+                  <Col className="col-12 col-md-3 col-lg-3">
                     <FormGroup>
                       <Label for="city">City</Label>
                       <Input
                         type="input"
                         name="city"
                         id="city"
-                        required
                         onChange={this.changeHandler}
                       />
                       {this.state.errors &&
@@ -270,9 +256,9 @@ class Register extends Component {
                         )}
                     </FormGroup>
                   </Col>
-                  <Col className="col-12 col-md-4">
+                  <Col className="col-12 col-md-3 col-lg-3">
                     <FormGroup>
-                      <Label for="state">State</Label>
+                      <Label for="addrstate">State</Label>
                       <br />
                       <select
                         className="dropdown-list"
@@ -332,21 +318,19 @@ class Register extends Component {
                         <option value="WI">Wisconsin</option>
                         <option value="WY">Wyoming</option>
                       </select>
-
                       {this.state.errors &&
                         this.state.errors.addrstate && (
                           <p>{this.state.errors.addrstate.msg}</p>
                         )}
                     </FormGroup>
                   </Col>
-                  <Col className="col-12 col-md-4">
+                  <Col className="col-12 col-md-2 col-lg-2">
                     <FormGroup>
                       <Label for="zip">Zip Code</Label>
                       <Input
                         type="input"
                         name="zipcode"
                         id="zipcode"
-                        required
                         onChange={this.changeHandler}
                       />
                       {this.state.errors &&
@@ -362,10 +346,10 @@ class Register extends Component {
               </Form>
             </Container>
           </Col>
-        </Row>
+        </Container>
       </div>
     );
   }
 }
 
-export default Register;
+export default Signup;

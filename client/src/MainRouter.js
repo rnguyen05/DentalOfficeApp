@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/Pages/home";
 import About from "./components/Pages/about";
 import Services from "./components/Pages/services";
@@ -10,20 +10,18 @@ import Signup from "./components/Pages/signup";
 import Calendar from "./components/Pages/Calendar";
 
 const App = () => (
-  <div>
-    <Router>
-      <div>
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route exact path="/services" component={Services} />
-        <Route exact path="/contact" component={Contact} />
-        <Route exact path="/promotions" component={Promotions} />
-        <Route exact path="/appointments" component={Appointments} />
-        <Route exact path="/signup" component={Signup} />
-        <Route exact path="/calendar" component={Calendar} />
-      </div>
-    </Router>
-  </div>
+  <Router>
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route path="/about" component={About} />
+      <Route exact path="/services" component={Services} />
+      <Route exact path="/contact" component={Contact} />
+      <Route exact path="/promotions" component={Promotions} />
+      <Route exact path="/appointments" component={Appointments} />
+      <Route exact path="/signup" component={Signup} />
+      <Route exact path="/calendar" component={Calendar} />
+    </Switch>
+  </Router>
 );
 
 export default App;

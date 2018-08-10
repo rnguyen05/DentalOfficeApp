@@ -7,9 +7,12 @@ const mongoose = require("mongoose");
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-
 // Define middleware here
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+);
 
 app.use(bodyParser.json());
 // Serve up static assets (usually on heroku)
@@ -28,9 +31,9 @@ if (process.env.NODE_ENV == "production") {
     "mongodb://heroku_v0vnpbfj:73khkido42is3a68sivm9t3vpc@ds263707.mlab.com:63707/heroku_v0vnpbfj"
   );
 } else {
-  mongoose.connect("mongodb://localhost/dentalapp");
+  mongoose.connect("mongodb://localhost/DentalUserDB");
 }
-var db = mongoose.connection;
+const db = mongoose.connection;
 
 // Show any Mongoose errors
 db.on("error", function(err) {
@@ -45,6 +48,7 @@ db.once("open", function() {
 // Import the Article model
 const Calendar = require("./server/models/calendar");
 const Schedule = require("./server/models/schedule");
+const User = require("./server/models/user");
 
 // Send every request to the React app
 // Define any API routes before this runs
