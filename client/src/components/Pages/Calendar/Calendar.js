@@ -459,7 +459,9 @@ class Calendar extends Component {
     };
     console.log("temp", temp);
     API.createSchedule({
-      calendar:this.state.calendarList[0].id,// "5b63c5ac396f5540ec23a1a4",
+
+      calendar: this.state.calendarList[0].id,//"5b63c5ac396f5540ec23a1a4",
+
       title: event.title,
       category: "time",
       dueDateClass: "",
