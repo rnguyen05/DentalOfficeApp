@@ -11,7 +11,7 @@ import "./navbar.css";
 import $ from "jquery";
 import Logo from "../img/logo.png";
 import Popup from "../Modals";
-
+import TestLogin from "../Pages/testlogin";
 import decode from "jwt-decode";
 import axios from "axios";
 
@@ -177,10 +177,14 @@ export default class Navibar extends Component {
                   &nbsp;&nbsp;&nbsp;Logout
                 </DropdownItem>
               ) : (
-                <DropdownItem onClick={this.togglePopup.bind(this)}>
+                <DropdownItem href={<TestLogin />}>
                   <i className="fas fa-sign-in-alt" />
                   &nbsp;&nbsp;&nbsp;Login
                 </DropdownItem>
+                // <DropdownItem onClick={this.togglePopup.bind(this)}>
+                //   <i className="fas fa-sign-in-alt" />
+                //   &nbsp;&nbsp;&nbsp;Login
+                // </DropdownItem>
               )}
             </DropdownMenu>
           </Dropdown>
