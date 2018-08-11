@@ -1,3 +1,21 @@
+/* Testlogin CSS */
+#user-reg {
+  margin: auto;
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+.user-reg-inner {
+  margin: auto;
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+  opacity: 0.7;
+  z-index: 30;
+}
+/* End Testlogin CSS */
+
 html,
 body {
   margin: 0;
