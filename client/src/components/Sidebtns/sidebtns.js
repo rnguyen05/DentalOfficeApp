@@ -33,9 +33,11 @@ export default class Sidebtns extends Component {
             className="sidebtn"
             color="secondary"
             size="lg"
-            onClick={this.togglePopup.bind(this)}
+            href="/appointments#id-appointment"
           >
-            Make an<br />Appointment
+            Make an
+            <br />
+            Appointment
           </Button>
           <br />
           <Button
@@ -44,7 +46,9 @@ export default class Sidebtns extends Component {
             size="lg"
             href="/promotions#id-promo"
           >
-            Special<br />Promotions
+            Special
+            <br />
+            Promotions
           </Button>
           <br />
           <Button
@@ -53,7 +57,8 @@ export default class Sidebtns extends Component {
             size="lg"
             href="/payment"
           >
-            Make a<br />Payment
+            Make a<br />
+            Payment
           </Button>
         </Container>
         {this.state.showPopup ? (

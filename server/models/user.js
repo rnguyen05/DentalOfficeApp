@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-const bcrypt = require("bcrypt");
-var UserSchema = new Schema({
+
+const userSchema = mongoose.Schema({
+  _id: mongoose.Schema.Types.ObjectId,
   firstname: {
     type: String,
     required: true
@@ -10,17 +10,15 @@ var UserSchema = new Schema({
     type: String,
     required: true
   },
-  username: {
-    type: String,
-    require: true
-  },
   password: {
     type: String,
     required: true
   },
   email: {
     type: String,
-    required: true
+    required: true,
+    unique: true,
+    match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
   },
   phoneone: {
     type: String,
@@ -30,11 +28,11 @@ var UserSchema = new Schema({
     type: String,
     required: false
   },
-  address1: {
+  addrone: {
     type: String,
     require: true
   },
-  address2: {
+  addrtwo: {
     type: String,
     required: false
   },
@@ -42,31 +40,14 @@ var UserSchema = new Schema({
     type: String,
     required: true
   },
-  state: {
+  addrstate: {
     type: String,
     required: true
   },
   zipcode: {
     type: String,
     required: true
-  },
-  createdAt: {
-    type: Date,
-    required: true,
-    default: Date.now
-  },
-  updatedAt: {
-    type: Date,
-    required: true,
-    default: Date.now
   }
 });
 
-UserSchema.methods.hashPassword = function(password) {
-  return bcrypt.hashSync(password, 12);
-};
-UserSchema.methods.comparePassword = function(password, hashedPassword) {
-  return bcrypt.compareSync(password, hashedPassword);
-};
-
-module.exports = User = mongoose.model("User", UserSchema);
+module.exports = mongoose.model("User", userSchema);
