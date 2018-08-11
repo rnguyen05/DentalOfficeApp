@@ -143,7 +143,15 @@ class Calendar extends Component {
 
       for (let i = 0; i < res.data.length; i++) {
         let element = res.data[i];
-        console.log("element", element);
+
+        console.log("salaaaamm", res.data[i].calendar);
+        let tempid;
+        if(element.calendar){
+          tempid=element.calendar._id;
+        }
+        else{
+          tempid=this.state.calendarList[0].id;
+        }
 
         this.state.calendar.createSchedules([
           {
@@ -487,6 +495,7 @@ class Calendar extends Component {
   };
 
   beforeCreateSchedule = event => {
+    console.log("calendarlist",this.state.calendarList);
     console.log("beforeCreateSchedule", event);
     let temp = {
       calendar: "5b63c5ac396f5540ec23a1a4",
@@ -499,7 +508,9 @@ class Calendar extends Component {
     };
     console.log("temp", temp);
     API.createSchedule({
-      calendar: "5b63c5ac396f5540ec23a1a4",
+
+      calendar: this.state.calendarList[0].id,//"5b63c5ac396f5540ec23a1a4",
+
       title: event.title,
       category: "time",
       dueDateClass: "",
