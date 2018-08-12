@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import ReactModalLogin from "react-modal-login";
-import { facebookConfig, googleConfig } from "../Modal/social-config";
-import "../Modal/modal.css";
-import Home from "../Home";
-import Footer from "../Footer";
-
-export default class Login extends Component {
+import { facebookConfig, googleConfig } from "./social-config";
+import "./modal.css";
+export default class Sample extends Component {
   constructor(props) {
     super(props);
 
@@ -295,9 +292,128 @@ export default class Login extends Component {
           />
           {loggedIn}
         </div>
-
-        <Footer />
       </div>
     );
   }
 }
+
+// import React from "react";
+// import ReactModalLogin from "react-modal-login";
+// import { facebookConfig, googleConfig } from "./social-config";
+// import Form from "react-modal-login";
+// import Decode from "jwt-decode";
+
+// //Extract response token
+// // const token = localStorage.getItem("jwtAppToken");
+// // const { email } = Decode(token);
+// // console.log("email from token:", email);
+
+// class PopupModal extends React.Component {
+//   constructor(props) {
+//     super(props);
+
+//     this.state = {
+//       showModal: false,
+//       loading: false,
+//       error: null
+//     };
+//   }
+
+//   openModal() {
+//     this.setState({
+//       showModal: true
+//     });
+//   }
+
+//   closeModal() {
+//     this.setState({
+//       showModal: false,
+//       error: null
+//     });
+//   }
+
+//   onLoginSuccess(method, response) {
+//     if (method === "google") {
+//       console.log("logged successfully with " + method);
+//       console.log(response);
+//       //Extract Google response token
+//       const token = response;
+//       const { email } = Decode(response.id_token);
+//       console.log("email from token:", email);
+//     } else if (method === "facebook") {
+//       //Extract Facebook response token
+//       console.log(response.authResponse.accessToken);
+//     }
+//     this.closeModal();
+//   }
+
+//   onLoginFail(method, response) {
+//     console.log("logging failed with " + method);
+//     this.setState({
+//       error: response
+//     });
+//   }
+
+//   startLoading() {
+//     this.setState({
+//       loading: true
+//     });
+//   }
+
+//   finishLoading() {
+//     this.setState({
+//       loading: false
+//     });
+//   }
+
+//   onTabsChange() {
+//     this.setState({
+//       error: null
+//     });
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         <button onClick={() => this.openModal()}>
+//           Please Login to schedule appointment.
+//         </button>
+
+//         <ReactModalLogin
+//           visible={this.state.showModal}
+//           onCloseModal={this.closeModal.bind(this)}
+//           loading={this.state.loading}
+//           error={this.state.error}
+//           tabs={{
+//             onChange: this.onTabsChange.bind(this)
+//           }}
+//           loginError={{
+//             label: "Couldn't sign in, please try again."
+//           }}
+//           registerError={{
+//             label: "Couldn't sign up, please try again."
+//           }}
+//           startLoading={this.startLoading.bind(this)}
+//           finishLoading={this.finishLoading.bind(this)}
+//           providers={{
+//             facebook: {
+//               config: facebookConfig,
+//               onLoginSuccess: this.onLoginSuccess.bind(this),
+//               onLoginFail: this.onLoginFail.bind(this),
+//               label: "Continue with Facebook"
+//             },
+//             google: {
+//               config: googleConfig,
+//               onLoginSuccess: this.onLoginSuccess.bind(this),
+//               onLoginFail: this.onLoginFail.bind(this),
+//               label: "Continue with Google"
+//             }
+//           }}
+
+//         />
+//       </div>
+//     );
+//   }
+// }
+
+// export default PopupModal;
