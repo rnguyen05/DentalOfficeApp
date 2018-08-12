@@ -14,7 +14,7 @@ import Appointments from "./components/Pages/appointments";
 import Signup from "./components/Pages/signup";
 import Calendar from "./components/Pages/Calendar";
 import Login from "./components/Pages/login";
-import decode from "jwt-decode";
+import Decode from "jwt-decode";
 
 import TestLogin from "./components/Pages/testlogin";
 import TestModal from "./components/Pages/testmodal";
@@ -27,7 +27,7 @@ const checkAuth = () => {
     return false;
   }
   try {
-    const { exp } = decode(token);
+    const { exp } = Decode(token);
     if (exp < new Date().getTime() / 1000) {
       return false;
     }
@@ -45,7 +45,7 @@ const AuthRoute = ({ component: Component, ...rest }) => (
       checkAuth() ? (
         <Component {...props} />
       ) : (
-        <Redirect to={{ pathname: "/login" }} />
+        <Redirect to={{ pathname: "/testlogin" }} />
       )
     }
   />

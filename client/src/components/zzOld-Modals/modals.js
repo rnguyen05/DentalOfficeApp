@@ -19,14 +19,17 @@ class Popup extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: false,
-      userID: "",
-      name: "",
+      // isLoggedIn: false,
+      // userID: "",
+      // name: "",
       email: "",
-      picture: "",
+      // picture: "",
       password: "",
       showPopup: false //MODAL
     };
+    this.loginUser = this.loginUser.bind(this);
+    this.handlerPasswordChanged = this.handlerPasswordChanged.bind(this);
+    this.handlerUsernameChanged = this.handlerUsernameChanged.bind(this);
   }
 
   //username input event listener
@@ -87,6 +90,7 @@ class Popup extends Component {
       if (res.data.errors) {
         return this.setState(res.data);
       } else {
+        console.log(res);
         localStorage.setItem("jwtAppToken", res.data.token);
         window.location.href = "/";
       }
@@ -96,10 +100,10 @@ class Popup extends Component {
         success: true
       });
       //clear the form
-      this.setState({
-        email: "",
-        password: ""
-      });
+      // this.setState({
+      //   email: "",
+      //   password: ""
+      // });
     });
   }
 
@@ -137,23 +141,23 @@ class Popup extends Component {
     // });
   }
 
-  isAuthenticated() {
-    const token = localStorage.getItem("jwtAppToken");
-    return token && token.length > 10;
-  }
+  // isAuthenticated() {
+  //   const token = localStorage.getItem("jwtAppToken");
+  //   return token && token.length > 10;
+  // }
 
-  responseFacebook = response => {
-    localStorage.setItem("jwtAppToken", response.name);
-    console.log(response);
+  // responseFacebook = response => {
+  //   localStorage.setItem("jwtAppToken", response.name);
+  //   console.log(response);
 
-    this.setState({
-      isLoggedIn: true,
-      userID: response.userID,
-      name: response.name,
-      email: response.email,
-      picture: response.picture.data.url
-    });
-  };
+  //   this.setState({
+  //     isLoggedIn: true,
+  //     userID: response.userID,
+  //     name: response.name,
+  //     email: response.email,
+  //     picture: response.picture.data.url
+  //   });
+  // };
 
   //MODAL
   togglePopup() {

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import {
   Container,
@@ -11,6 +12,9 @@ import {
   Button
 } from "reactstrap";
 // import "./signup.css";
+// import "../../index.css";
+import Home from "../Home";
+import Footer from "../Footer";
 
 class Signup extends Component {
   constructor(props) {
@@ -49,22 +53,30 @@ class Signup extends Component {
   }
   render() {
     return (
-      <div className="reg-section" id="user-reg">
-        <h2 className="clearfix clear-top text-center">User Registration</h2>
+      <div>
+        <Home />
+        <h2 className="clearfix clear-top text-center">User Login</h2>
         <br />
         {this.state.success && <p>Welcome!</p>}
-        <Container className="user-reg-inner">
+        <Container id="login-form">
           <Col className="col-12">
             <Container>
-              <Form id="reg-form" onSubmit={this.submitHandler}>
+              <Col className="col-12">
+                <p>Facebook login</p>
+                <p>Google login</p>
+                <p>Twitter login</p>
+                <p>Set state for Signup to show on the same login page</p>
+              </Col>
+              <Form onSubmit={this.submitHandler}>
                 <Row>
                   <Col className="col-12">
                     <FormGroup>
-                      <Label for="repeatemail">Confirm Email</Label>
+                      <Label for="repeatemail">Email</Label>
                       <Input
                         type="email"
                         name="email"
                         id="email"
+                        placeholder="email@email.com"
                         required
                         onChange={this.changeHandler}
                       />
@@ -83,6 +95,7 @@ class Signup extends Component {
                         type="password"
                         name="password"
                         id="passwordreg"
+                        placeholder="password"
                         required
                         onChange={this.changeHandler}
                       />
@@ -94,12 +107,14 @@ class Signup extends Component {
                   </Col>
                 </Row>
                 <Button className="contact" size="lg">
-                  Submit
+                  Login
                 </Button>
+                <Link to="/signup#id-signup">Signup</Link>
               </Form>
             </Container>
           </Col>
         </Container>
+        <Footer />
       </div>
     );
   }

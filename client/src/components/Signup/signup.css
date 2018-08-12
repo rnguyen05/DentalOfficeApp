@@ -2,6 +2,7 @@
   height: 36px;
 }
 
-.reg-section {
-  width: 80%;
+#reg-form {
+  width: 40%;
+  margin: auto;
 }

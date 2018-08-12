@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Container, Button } from "reactstrap";
 import "./sidebtns.css";
 import $ from "jquery";
-import Popup from "../Modals";
+import Popup from "../Modal";
 
 export default class Sidebtns extends Component {
   //Popup Modal

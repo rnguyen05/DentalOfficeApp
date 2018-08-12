@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Button } from "reactstrap";
 import "./promotions.css";
-import Popup from "../Modals";
+import Popup from "../Modal";
 
 export default class Promotions extends Component {
   //Popup Modal
@@ -26,7 +26,8 @@ export default class Promotions extends Component {
           <br />
           <h6>
             <ins>
-              New Patient Special:<br />
+              New Patient Special:
+              <br />
             </ins>{" "}
             No-cost exam and 3D x-rays!
           </h6>
