@@ -1148,6 +1148,7 @@ body {
   .p-white {
     font-size: 15pt;
     line-height: 1.5em;
+    padding: 19px;
   }
 
   .p-services {
@@ -1293,8 +1294,8 @@ body {
   }
   .dentist-img {
     float: left;
-    width: 21%;
-    padding-right: 15px;
+    width: 22%;
+    margin-right: 25px;
   }
 
   .wrap-paragraph {
@@ -1306,22 +1307,20 @@ body {
 
   /*About Us Network*/
   .network {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-    margin-bottom: 17px;
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+    margin-bottom: 11px;
   }
   .network2 {
-    width: 60px;
-    height: 30px;
-    margin-right: 10px;
-    margin-bottom: 17px;
+    width: 80px;
+    height: 50px;
+    margin-right: 20px;
   }
   .network3 {
-    width: 80px;
-    height: 30px;
-    margin-right: 10px;
-    margin-bottom: 17px;
+    width: 120px;
+    height: 50px;
+    margin-right: 20px;
   }
   /*Our Services*/
   .services-icon {

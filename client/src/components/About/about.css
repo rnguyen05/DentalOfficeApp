@@ -1,3 +1,8 @@
+.p-white {
+  padding: 19px;
+  width: 95%;
+}
+
 .section-about {
   background: url("../img/dentist-bg.jpg");
   background-size: cover;
@@ -7,8 +12,8 @@
 }
 
 .network {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   margin-right: 20px;
   margin-bottom: 20px;
 }
