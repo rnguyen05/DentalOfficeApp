@@ -11,10 +11,12 @@ import {
   Input,
   Button
 } from "reactstrap";
-// import "./signup.css";
-// import "../../index.css";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
+
+import Fb from "../img/logos/facebook.png";
+import Gg from "../img/logos/google.png";
+import Tw from "../img/logos/twitter.png";
 
 class Signup extends Component {
   constructor(props) {
@@ -65,11 +67,19 @@ class Signup extends Component {
             <Container id="login-form">
               <Col className="col-12">
                 <Container>
-                  <Col className="col-12">
-                    <p>Facebook login</p>
-                    <p>Google login</p>
-                    <p>Twitter login</p>
-                    <p>Set state for Signup to show on the same login page</p>
+                  <Col className="col-12 text-center">
+                    <a href="#">
+                      {<img className="login-logo" src={Fb} alt="Facebook" />}
+                    </a>
+                    <br />
+                    <a href="#">
+                      {<img className="login-logo" src={Gg} alt="Facebook" />}
+                    </a>
+                    <br />
+                    <a href="#">
+                      {<img className="login-logo" src={Tw} alt="Facebook" />}
+                    </a>
+                    <br />
                   </Col>
                   <Form onSubmit={this.submitHandler}>
                     <Row>
