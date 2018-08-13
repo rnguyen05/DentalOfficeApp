@@ -10,7 +10,7 @@ const Footer = () => {
         <Row>
           <Col className="footer-content">
             <h6 className="clearfix h6">Our Address</h6>
-            <p>
+            <p className="p">
               12345 Dental Studio Dr. #101 <br />
               Westwood Village, CA 90024
               <br />

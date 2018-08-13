@@ -43,6 +43,7 @@ body {
   font-family: "PT Sans Narrow", sans-serif;
   font-size: 15pt;
   padding: 10px;
+  line-height: 1.5em;
 }
 
 .p-white {
@@ -50,6 +51,7 @@ body {
   font-size: 15pt;
   color: white;
   padding: 10px;
+  line-height: 1.5em;
 }
 
 .fas {
@@ -1145,13 +1147,13 @@ li {
   .p,
   .p-white {
     font-size: 15pt;
-    line-height: 1em;
+    line-height: 1.5em;
   }
 
   .p-services {
     font-size: 15pt;
     text-align: center;
-    line-height: 1em;
+    line-height: 1.5em;
   }
 
   .h2 {
