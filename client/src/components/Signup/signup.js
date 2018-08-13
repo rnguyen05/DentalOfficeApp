@@ -37,8 +37,25 @@ class Signup extends Component {
   }
 
   changeHandler(e) {
+    e.preventDefault();
+
     this.setState({
       [e.target.name]: e.target.value
+    });
+
+    axios.post("/api/user/signup/validate", this.state).then(result => {
+      console.log("result sent back from server: ", result);
+      if (result.data.errors) {
+        return this.setState(result.data);
+      } else {
+        localStorage.setItem("jwtAppToken", result.data.token);
+        window.location.href = "/";
+      }
+      return this.setState({
+        userdata: result.data,
+        errors: null,
+        success: true
+      });
     });
   }
   submitHandler(e) {
