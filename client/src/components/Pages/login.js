@@ -89,6 +89,7 @@ class Signup extends Component {
                             Email
                           </Label>
                           <Input
+                            className="label"
                             type="email"
                             name="email"
                             id="email"
@@ -110,6 +111,7 @@ class Signup extends Component {
                             Password
                           </Label>
                           <Input
+                            className="label"
                             type="password"
                             name="password"
                             id="passwordreg"

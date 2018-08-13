@@ -51,7 +51,9 @@ export default class Promotions extends Component {
             <li className="li">
               &bull;&nbsp;&nbsp;Examinations (2 per benefit year)
             </li>
-            <li>&bull;&nbsp;&nbsp;One Emergency Exam (if necessary) </li>
+            <li className="li">
+              &bull;&nbsp;&nbsp;One Emergency Exam (if necessary){" "}
+            </li>
             <li className="li">
               &bull;&nbsp;&nbsp;20% off all other dental services provided in
               our office.
