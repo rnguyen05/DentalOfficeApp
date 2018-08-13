@@ -33,7 +33,7 @@ export default class Sidebtns extends Component {
             className="sidebtn"
             color="secondary"
             size="lg"
-            href="/appointments#id-appointment"
+            href="/appointments"
           >
             Make an
             <br />
@@ -44,7 +44,7 @@ export default class Sidebtns extends Component {
             className="sidebtn"
             color="secondary"
             size="lg"
-            href="/promotions#id-promo"
+            href="/promotions"
           >
             Special
             <br />

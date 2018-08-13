@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactModalLogin from "react-modal-login";
 import { facebookConfig, googleConfig } from "../Modal/social-config";
 import "../Modal/modal.css";
-import Home from "../Home";
+import Nabar from "../Navbar";
 import Footer from "../Footer";
 
 export default class Login extends Component {
