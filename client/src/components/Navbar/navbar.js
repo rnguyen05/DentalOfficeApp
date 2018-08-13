@@ -153,7 +153,7 @@ export default class Navibar extends Component {
                 &nbsp;&nbsp;&nbsp;About
               </DropdownItem>
               <DropdownItem divider />
-              <DropdownItem href="/services#id-services">
+              <DropdownItem href="/services">
                 <i className="fas fa-tooth" />
                 &nbsp;&nbsp;&nbsp;Services
               </DropdownItem>
@@ -166,7 +166,7 @@ export default class Navibar extends Component {
                 &nbsp;&nbsp;&nbsp;Directions
               </DropdownItem>
               <DropdownItem divider />
-              <DropdownItem href="/contact#id-contact">
+              <DropdownItem href="/contact">
                 <i className="fas fa-user" />
                 &nbsp;&nbsp;&nbsp;Contact
               </DropdownItem>
