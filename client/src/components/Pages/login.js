@@ -75,7 +75,9 @@ class Signup extends Component {
                     <Row>
                       <Col className="col-12">
                         <FormGroup>
-                          <Label for="repeatemail">Email</Label>
+                          <Label className="label" for="repeatemail">
+                            Email
+                          </Label>
                           <Input
                             type="email"
                             name="email"
@@ -94,7 +96,9 @@ class Signup extends Component {
                     <Row>
                       <Col className="col-12">
                         <FormGroup>
-                          <Label for="password">Password</Label>
+                          <Label className="label" for="password">
+                            Password
+                          </Label>
                           <Input
                             type="password"
                             name="password"
@@ -113,7 +117,9 @@ class Signup extends Component {
                     <Button className="contact" size="lg">
                       Login
                     </Button>
-                    <Link to="/signup#id-signup">Signup</Link>
+                    <Link className="label" to="/signup#id-signup">
+                      Signup
+                    </Link>
                   </Form>
                 </Container>
               </Col>

@@ -7,6 +7,11 @@ body {
   font-family: "PT Sans Narrow", sans-serif;
   font-size: 15pt;
 }
+.label-white {
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 15pt;
+  color: white;
+}
 
 .h2 {
   font-family: "Francois One", sans-serif;
@@ -79,6 +84,7 @@ body {
 
 #reg-form {
   margin: auto;
+  padding-bottom: 30px;
 }
 
 #login-form {
