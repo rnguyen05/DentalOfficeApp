@@ -14,7 +14,7 @@ import "./services.css";
 const Services = () => {
   return (
     <Container id="id-services">
-      <h2 className="clearfix text-center">Our Services</h2>
+      <h2 className="h2 clearfix text-center">Our Services</h2>
       <Row>
         <Col className="col-4">
           <p className="p-services">
