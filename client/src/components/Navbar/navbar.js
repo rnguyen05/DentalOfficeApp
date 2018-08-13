@@ -148,12 +148,12 @@ export default class Navibar extends Component {
                 &nbsp;&nbsp;&nbsp;Home
               </DropdownItem>
               <DropdownItem divider />
-              <DropdownItem href="/about">
+              <DropdownItem href="/about#id-about">
                 <i className="fas fa-users" />
                 &nbsp;&nbsp;&nbsp;About
               </DropdownItem>
               <DropdownItem divider />
-              <DropdownItem href="/services">
+              <DropdownItem href="/services#id-services">
                 <i className="fas fa-tooth" />
                 &nbsp;&nbsp;&nbsp;Services
               </DropdownItem>
@@ -166,7 +166,7 @@ export default class Navibar extends Component {
                 &nbsp;&nbsp;&nbsp;Directions
               </DropdownItem>
               <DropdownItem divider />
-              <DropdownItem href="/contact">
+              <DropdownItem href="/contact#id-contact">
                 <i className="fas fa-user" />
                 &nbsp;&nbsp;&nbsp;Contact
               </DropdownItem>
@@ -177,7 +177,7 @@ export default class Navibar extends Component {
                   &nbsp;&nbsp;&nbsp;Logout
                 </DropdownItem>
               ) : (
-                <DropdownItem href="/testlogin">
+                <DropdownItem href="/testlogin#id-login">
                   <i className="fas fa-sign-in-alt" />
                   &nbsp;&nbsp;&nbsp;Login
                 </DropdownItem>
