@@ -1142,7 +1142,7 @@ li {
 /* End of @media only screen and (min-width: 1224px) */
 
 @media only screen and (min-width: 1440px) {
-  p,
+  .p,
   .p-white {
     font-size: 15pt;
   }
@@ -1152,7 +1152,7 @@ li {
     text-align: center;
   }
 
-  h2 {
+  .h2 {
     font-size: 25pt;
     text-align: center;
   }
@@ -1160,11 +1160,11 @@ li {
     text-align: center;
     font-size: 25pt;
   }
-  h6 {
+  .h6 {
     font-size: 15pt;
   }
-  li,
-  label {
+  .li,
+  .label {
     font-size: 15pt;
   }
 
@@ -1325,7 +1325,7 @@ li {
   }
 
   /* Loyalty */
-  ul {
+  .ul {
     text-align: left;
     padding-left: 50px;
   }
