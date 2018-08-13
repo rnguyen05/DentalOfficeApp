@@ -1,4 +1,7 @@
 .mission {
   margin-bottom: 50px;
-  width: 70%;
+}
+
+.col {
+  max-width: 80%;
 }
