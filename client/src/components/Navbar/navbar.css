@@ -2,6 +2,11 @@
 font-family: 'PT Serif', serif;
 font-family: 'PT Sans Narrow', sans-serif; */
 
+.dropdown-item {
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 13pt;
+}
+
 .contact {
   font-family: "PT Sans Narrow", sans-serif;
   font-size: 15pt;
