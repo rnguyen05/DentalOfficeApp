@@ -10,18 +10,15 @@ const Footer = () => {
         <Row>
           <Col className="footer-content">
             <h6 className="clearfix h6">Our Address</h6>
-            <p className="p">
+            <p className="footer-address">
               12345 Dental Studio Dr. #101 <br />
               Westwood Village, CA 90024
               <br />
-              <a className="footer-address a" href="tel:8008888888">
+              <a className="a" href="tel:8008888888">
                 Tel: (800)888 - 8888
               </a>
               <br />
-              <a
-                className="footer-address a"
-                href="mailto:hello@dentalstudio.com"
-              >
+              <a className="a" href="mailto:hello@dentalstudio.com">
                 Email: hello@dentalstudio.com
               </a>
             </p>
