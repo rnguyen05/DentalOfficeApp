@@ -1,303 +1,129 @@
 import React, { Component } from "react";
-import ReactModalLogin from "react-modal-login";
-import { facebookConfig, googleConfig } from "../Modal/social-config";
-import "../Modal/modal.css";
-import Nabar from "../Navbar";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import {
+  Container,
+  Row,
+  Col,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Button
+} from "reactstrap";
+// import "./signup.css";
+// import "../../index.css";
+import Navbar from "../Navbar";
 import Footer from "../Footer";
 
-export default class Login extends Component {
+class Signup extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      showModal: false,
-      loggedIn: null,
-      loading: false,
-      error: null,
-      initialTab: null,
-      recoverPasswordSuccess: null
+      email: "",
+      password: "",
+      userdata: null,
+      success: false
     };
+    this.changeHandler = this.changeHandler.bind(this);
+    this.submitHandler = this.submitHandler.bind(this);
   }
 
-  onLogin() {
-    console.log("__onLogin__");
-    console.log("email: " + document.querySelector("#email").value);
-    console.log("password: " + document.querySelector("#password").value);
-
-    const email = document.querySelector("#email").value;
-    const password = document.querySelector("#password").value;
-
-    if (!email || !password) {
-      this.setState({
-        error: true
-      });
-    } else {
-      this.onLoginSuccess("form");
-    }
+  changeHandler(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
   }
-
-  onRegister() {
-    console.log("__onRegister__");
-    console.log("login: " + document.querySelector("#login").value);
-    console.log("email: " + document.querySelector("#email").value);
-    console.log("password: " + document.querySelector("#password").value);
-
-    const firstname = document.querySelector("#firstname").value;
-    const lastname = document.querySelector("#lastname").value;
-    const email = document.querySelector("#email").value;
-    const password = document.querySelector("#password").value;
-
-    if (!firstname || !lastname || !email || !password) {
-      this.setState({
-        error: true
-      });
-    } else {
-      this.onLoginSuccess("form");
-    }
-  }
-
-  onRecoverPassword() {
-    console.log("__onFotgottenPassword__");
-    console.log("email: " + document.querySelector("#email").value);
-
-    const email = document.querySelector("#email").value;
-
-    if (!email) {
-      this.setState({
-        error: true,
-        recoverPasswordSuccess: false
-      });
-    } else {
-      this.setState({
-        error: null,
-        recoverPasswordSuccess: true
-      });
-    }
-  }
-
-  openModal(initialTab) {
-    this.setState(
-      {
-        initialTab: initialTab
-      },
-      () => {
-        this.setState({
-          showModal: true
-        });
+  submitHandler(e) {
+    e.preventDefault();
+    axios.post("/api/user/login", this.state).then(result => {
+      console.log("result sent back from server: ", result);
+      if (result.data.errors) {
+        return this.setState(result.data);
+      } else {
+        localStorage.setItem("jwtAppToken", result.data.token);
+        window.location.href = "/";
       }
-    );
-  }
-
-  onLoginSuccess(method, response) {
-    this.closeModal();
-    this.setState({
-      loggedIn: method,
-      loading: false
+      return this.setState({
+        userdata: result.data,
+        errors: null,
+        success: true
+      });
     });
   }
-
-  onLoginFail(method, response) {
-    this.setState({
-      loading: false,
-      error: response
-    });
-  }
-
-  startLoading() {
-    this.setState({
-      loading: true
-    });
-  }
-
-  finishLoading() {
-    this.setState({
-      loading: false
-    });
-  }
-
-  afterTabsChange() {
-    this.setState({
-      error: null,
-      recoverPasswordSuccess: false
-    });
-  }
-
-  closeModal() {
-    this.setState({
-      showModal: false,
-      error: null
-    });
-  }
-
   render() {
-    const loggedIn = this.state.loggedIn ? (
-      <div>
-        <p>You are signed in with: {this.state.loggedIn}</p>
-      </div>
-    ) : (
-      <div>
-        <p>You are signed out</p>
-      </div>
-    );
-
-    const isLoading = this.state.loading;
-
     return (
-      <div>
-        <button className="RML-btn" onClick={() => this.openModal("login")}>
-          Login
-        </button>
-
-        <button className="RML-btn" onClick={() => this.openModal("register")}>
-          Register
-        </button>
-        <div className="login-modal">
-          <ReactModalLogin
-            visible={this.state.showModal}
-            onCloseModal={this.closeModal.bind(this)}
-            loading={isLoading}
-            initialTab={this.state.initialTab}
-            error={this.state.error}
-            tabs={{
-              afterChange: this.afterTabsChange.bind(this)
-            }}
-            startLoading={this.startLoading.bind(this)}
-            finishLoading={this.finishLoading.bind(this)}
-            form={{
-              onLogin: this.onLogin.bind(this),
-              onRegister: this.onRegister.bind(this),
-              onRecoverPassword: this.onRecoverPassword.bind(this),
-
-              recoverPasswordSuccessLabel: this.state.recoverPasswordSuccess
-                ? {
-                    label: "New password has been sent to your mailbox!"
-                  }
-                : null,
-              recoverPasswordAnchor: {
-                label: "Forgot your password?"
-              },
-              loginBtn: {
-                label: "Sign in"
-              },
-              registerBtn: {
-                label: "Sign up"
-              },
-              recoverPasswordBtn: {
-                label: "Send new password"
-              },
-              loginInputs: [
-                {
-                  containerClass: "RML-form-group",
-                  label: "Email",
-                  type: "email",
-                  inputClass: "RML-form-control",
-                  id: "email",
-                  name: "email",
-                  placeholder: "Email"
-                },
-                {
-                  containerClass: "RML-form-group",
-                  label: "Password",
-                  type: "password",
-                  inputClass: "RML-form-control",
-                  id: "password",
-                  name: "password",
-                  placeholder: "Password"
-                }
-              ],
-              registerInputs: [
-                {
-                  containerClass: "RML-form-group",
-                  label: "First Name",
-                  type: "text",
-                  inputClass: "RML-form-control",
-                  id: "firstname",
-                  name: "firstname",
-                  placeholder: "First Name"
-                },
-                {
-                  containerClass: "RML-form-group",
-                  label: "Last Name",
-                  type: "text",
-                  inputClass: "RML-form-control",
-                  id: "lastname",
-                  name: "lastname",
-                  placeholder: "First Name"
-                },
-                {
-                  containerClass: "RML-form-group",
-                  label: "Email",
-                  type: "email",
-                  inputClass: "RML-form-control",
-                  id: "email",
-                  name: "email",
-                  placeholder: "Email"
-                },
-                {
-                  containerClass: "RML-form-group",
-                  label: "Confirm Email",
-                  type: "email",
-                  inputClass: "RML-form-control",
-                  id: "email_con",
-                  name: "email_con",
-                  placeholder: "Confirm Email"
-                },
-                {
-                  containerClass: "RML-form-group",
-                  label: "Password",
-                  type: "password",
-                  inputClass: "RML-form-control",
-                  id: "password",
-                  name: "password",
-                  placeholder: "Password"
-                },
-                {
-                  containerClass: "RML-form-group",
-                  label: "Confirm Password",
-                  type: "password",
-                  inputClass: "RML-form-control",
-                  id: "password_con",
-                  name: "password_con",
-                  placeholder: "Confirm Password"
-                }
-              ],
-              recoverPasswordInputs: [
-                {
-                  containerClass: "RML-form-group",
-                  label: "Email",
-                  type: "email",
-                  inputClass: "RML-form-control",
-                  id: "email",
-                  name: "email",
-                  placeholder: "Email"
-                }
-              ]
-            }}
-            separator={{
-              label: "or"
-            }}
-            providers={{
-              facebook: {
-                config: facebookConfig,
-                onLoginSuccess: this.onLoginSuccess.bind(this),
-                onLoginFail: this.onLoginFail.bind(this),
-                inactive: isLoading,
-                label: "Continue with Facebook"
-              },
-              google: {
-                config: googleConfig,
-                onLoginSuccess: this.onLoginSuccess.bind(this),
-                onLoginFail: this.onLoginFail.bind(this),
-                inactive: isLoading,
-                label: "Continue with Google"
-              }
-            }}
-          />
-          {loggedIn}
-        </div>
-
-        <Footer />
+      <div id="id-login">
+        <Navbar />
+        <Row className="login-bg">
+          <Container>
+            <h2 className="h2-white clearfix clear-top text-center">
+              User Login
+            </h2>
+            <br />
+            {this.state.success && <p>Welcome!</p>}
+            <Container id="login-form">
+              <Col className="col-12">
+                <Container>
+                  <Col className="col-12">
+                    <p>Facebook login</p>
+                    <p>Google login</p>
+                    <p>Twitter login</p>
+                    <p>Set state for Signup to show on the same login page</p>
+                  </Col>
+                  <Form onSubmit={this.submitHandler}>
+                    <Row>
+                      <Col className="col-12">
+                        <FormGroup>
+                          <Label for="repeatemail">Email</Label>
+                          <Input
+                            type="email"
+                            name="email"
+                            id="email"
+                            placeholder="email@email.com"
+                            required
+                            onChange={this.changeHandler}
+                          />
+                          {this.state.errors &&
+                            this.state.errors.email && (
+                              <p>{this.state.errors.email.msg}</p>
+                            )}
+                        </FormGroup>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col className="col-12">
+                        <FormGroup>
+                          <Label for="password">Password</Label>
+                          <Input
+                            type="password"
+                            name="password"
+                            id="passwordreg"
+                            placeholder="password"
+                            required
+                            onChange={this.changeHandler}
+                          />
+                          {this.state.errors &&
+                            this.state.errors.password && (
+                              <p>{this.state.errors.password.msg}</p>
+                            )}
+                        </FormGroup>
+                      </Col>
+                    </Row>
+                    <Button className="contact" size="lg">
+                      Login
+                    </Button>
+                    <Link to="/signup#id-signup">Signup</Link>
+                  </Form>
+                </Container>
+              </Col>
+            </Container>
+            <Footer />
+          </Container>
+        </Row>
       </div>
     );
   }
 }
+
+export default Signup;

@@ -13,10 +13,10 @@ import Promotions from "./components/Pages/promotions";
 import Appointments from "./components/Pages/appointments";
 import Signup from "./components/Pages/signup";
 import Calendar from "./components/Pages/Calendar";
-import Login from "./components/Pages/login";
+// import Login from "./components/Pages/login";
 import Decode from "jwt-decode";
 
-import TestLogin from "./components/Pages/testlogin";
+import TestLogin from "./components/Pages/login";
 import TestModal from "./components/Pages/testmodal";
 
 //Function to check if there is a valid and not expired token in localStorage
@@ -45,7 +45,7 @@ const AuthRoute = ({ component: Component, ...rest }) => (
       checkAuth() ? (
         <Component {...props} />
       ) : (
-        <Redirect to={{ pathname: "/testlogin" }} />
+        <Redirect to={{ pathname: "/login" }} />
       )
     }
   />
@@ -56,7 +56,7 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
-      <Route path="/login" component={Login} />
+
       <Route exact path="/services" component={Services} />
       <Route exact path="/contact" component={Contact} />
       <Route exact path="/promotions" component={Promotions} />
@@ -64,7 +64,7 @@ const App = () => (
       <Route exact path="/signup" component={Signup} />
       <AuthRoute exact path="/calendar" component={Calendar} />
 
-      <Route path="/testlogin" component={TestLogin} />
+      <Route path="/login" component={TestLogin} />
       <Route exact path="/testmodal" component={TestModal} />
     </Switch>
   </Router>

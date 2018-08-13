@@ -44,7 +44,7 @@ export default class Sidebtns extends Component {
             className="sidebtn"
             color="secondary"
             size="lg"
-            href="/promotions#id-promotions"
+            href="/promotions#id-promo"
           >
             Special
             <br />
