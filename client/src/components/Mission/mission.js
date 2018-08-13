@@ -6,8 +6,8 @@ const OurMission = () => {
   return (
     <Col>
       <Container className="mission text-center">
-        <h2>Our Mission</h2>
-        <p>
+        <h2 className="h2">Our Mission</h2>
+        <p className="p">
           Our mission is to provide professional dental services that are
           technologically current, with a commitment to excellence. Every
           patient is important to us. Our concern is that every patient is
