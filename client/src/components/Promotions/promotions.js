@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Button } from "reactstrap";
+import { Container, Col, Button } from "reactstrap";
 import "./promotions.css";
 import Popup from "../Modal";
 
@@ -25,37 +25,39 @@ export default class Promotions extends Component {
           <h2 className="h2 clearfix text-center">Special Promotions</h2>
           <br />
           <h6 className="h6">
-            <ins>
-              New Patient Special:
-              <br />
-            </ins>{" "}
-            No-cost exam and 3D x-rays!
+            <i className="fas fa-tooth" />
+            &nbsp;
+            <ins>New Patient Special:</ins>
+            <span className="p">No-cost exam and 3D x-rays!</span>
           </h6>
+
           <br />
-          <hr className="style-hr" />
           <br />
           <h6 className="h6">
+            <i className="fas fa-tooth" />
+            &nbsp;
             <ins>Loyalty Program:</ins>
           </h6>
           <ul className="loyalty-content">
-            <li>
+            <li className="li">
               &bull;&nbsp;&nbsp;2 Cleanings Per Year (2 per benefit year){" "}
             </li>
-            <li>
+            <li className="li">
               &bull;&nbsp;&nbsp;Additional Cleanings as Prescribed at a 50%
               discount.
             </li>
-            <li>&bull;&nbsp;&nbsp;Fluoride Treatment </li>
-            <li>&bull;&nbsp;&nbsp;X-Rays as Needed </li>
-            <li>&bull;&nbsp;&nbsp;Examinations (2 per benefit year)</li>
+            <li className="li">&bull;&nbsp;&nbsp;Fluoride Treatment </li>
+            <li className="li">&bull;&nbsp;&nbsp;X-Rays as Needed </li>
+            <li className="li">
+              &bull;&nbsp;&nbsp;Examinations (2 per benefit year)
+            </li>
             <li>&bull;&nbsp;&nbsp;One Emergency Exam (if necessary) </li>
-            <li>
+            <li className="li">
               &bull;&nbsp;&nbsp;20% off all other dental services provided in
               our office.
             </li>
           </ul>
-
-          <p>
+          <p className="p">
             <Button
               className="contact"
               color="secondary"
@@ -64,7 +66,7 @@ export default class Promotions extends Component {
             >
               Sign Up Now
             </Button>
-            OR&nbsp;&nbsp;
+            <span className="li">OR&nbsp;&nbsp;</span>
             <Button
               href="tel:8008888888"
               className="contact"
@@ -73,9 +75,6 @@ export default class Promotions extends Component {
             >
               Call Us Today
             </Button>
-            {this.state.showPopup ? (
-              <Popup closePopup={this.togglePopup.bind(this)} />
-            ) : null}
           </p>
         </Container>
       </div>

@@ -1180,7 +1180,7 @@ body {
   }
 
   .style-hr {
-    width: 50%;
+    max-width: 300px;
   }
   /*-------------- Prevent Horizontal swipe ------------*/
 
