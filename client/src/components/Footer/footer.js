@@ -9,16 +9,17 @@ const Footer = () => {
       <Container>
         <Row>
           <Col className="footer-content">
-            <h6 className="clearfix">Our Address</h6>
+            <h6 className="clearfix h6">Our Address</h6>
             <p>
               12345 Dental Studio Dr. #101 <br />
-              Westwood Village, CA 90024<br />
-              <a className="footer-address" href="tel:8008888888">
+              Westwood Village, CA 90024
+              <br />
+              <a className="footer-address a" href="tel:8008888888">
                 Tel: (800)888 - 8888
               </a>
               <br />
               <a
-                className="footer-address"
+                className="footer-address a"
                 href="mailto:hello@dentalstudio.com"
               >
                 Email: hello@dentalstudio.com
@@ -26,16 +27,17 @@ const Footer = () => {
             </p>
           </Col>
           <Col className="footer-content">
-            <h6 className="clearfix">Business Hours</h6>
-            <p>
+            <h6 className="clearfix h6">Business Hours</h6>
+            <p className="p">
               Monday - Friday: 9:00am - 6:00pm <br />
-              Saturday: 10:00am - 5:00pm<br />
+              Saturday: 10:00am - 5:00pm
+              <br />
               Sunday: Closed
             </p>
           </Col>
           <Col className="social-icons">
-            <h6 className="clearfix text-center">Connect with Us</h6>
-            <p>
+            <h6 className="clearfix text-center h6">Connect with Us</h6>
+            <p className="p">
               <a href="facebook.com">
                 <i className="fab fa-facebook-square fa-4x mr-2" />
               </a>
