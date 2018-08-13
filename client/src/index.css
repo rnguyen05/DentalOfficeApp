@@ -1145,11 +1145,13 @@ li {
   .p,
   .p-white {
     font-size: 15pt;
+    line-height: 1em;
   }
 
   .p-services {
     font-size: 15pt;
     text-align: center;
+    line-height: 1em;
   }
 
   .h2 {
