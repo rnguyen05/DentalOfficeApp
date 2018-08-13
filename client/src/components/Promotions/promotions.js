@@ -22,7 +22,7 @@ export default class Promotions extends Component {
     return (
       <div className="section-promo" id="id-promo">
         <Container>
-          <h2 className="clearfix text-center">Special Promotions</h2>
+          <h2 className=" h2 clearfix text-center">Special Promotions</h2>
           <br />
           <h6>
             <ins>

@@ -16,26 +16,34 @@ export default class Contact extends Component {
   render() {
     return (
       <div className="contact-section" id="id-contact">
-        <h2 className="clearfix clear-top text-center">Contact Us</h2>
+        <h2 className="h2 clearfix clear-top text-center">Contact Us</h2>
         <span className="clearfix" />
         <Row>
           <Col className="col-12">
             <Container>
               <Form id="contact-form">
                 <FormGroup>
-                  <Label for="name">First Name & Last Name</Label>
+                  <Label className="label" for="name">
+                    First Name & Last Name
+                  </Label>
                   <Input type="input" name="name" id="name" required />
                 </FormGroup>
                 <FormGroup>
-                  <Label for="email">Email</Label>
+                  <Label className="label" for="email">
+                    Email
+                  </Label>
                   <Input type="email" name="email" id="email" required />
                 </FormGroup>
                 <FormGroup>
-                  <Label for="email">Telephone</Label>
+                  <Label className="label" for="email">
+                    Telephone
+                  </Label>
                   <Input type="input" name="phone" id="phone" required />
                 </FormGroup>
                 <FormGroup>
-                  <Label for="exampleText">Message</Label>
+                  <Label className="label" for="exampleText">
+                    Message
+                  </Label>
                   <Input type="textarea" name="message" id="message" rows="7" />
                 </FormGroup>
                 <Button className="contact" size="lg">
@@ -49,14 +57,17 @@ export default class Contact extends Component {
               <Col className="contact-body">
                 <p>
                   12345 Dental Studio Dr. #101 <br />
-                  Westwood Village, CA 90024.<br />
+                  Westwood Village, CA 90024.
+                  <br />
                   Tel: (800)888 - 8888
                 </p>
               </Col>
               <Col className="contact-body">
                 <p>
-                  Monday - Friday: 9:00am - 6:00pm<br />
-                  Saturday: 10:00am - 5:00pm<br />
+                  Monday - Friday: 9:00am - 6:00pm
+                  <br />
+                  Saturday: 10:00am - 5:00pm
+                  <br />
                   Sunday: Closed
                 </p>
               </Col>
