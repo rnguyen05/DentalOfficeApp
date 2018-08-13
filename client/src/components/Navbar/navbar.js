@@ -148,7 +148,7 @@ export default class Navibar extends Component {
                 &nbsp;&nbsp;&nbsp;Home
               </DropdownItem>
               <DropdownItem divider />
-              <DropdownItem href="/about#id-about">
+              <DropdownItem href="/about">
                 <i className="fas fa-users" />
                 &nbsp;&nbsp;&nbsp;About
               </DropdownItem>
