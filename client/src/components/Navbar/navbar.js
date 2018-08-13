@@ -121,7 +121,7 @@ export default class Navibar extends Component {
             <Link to="/">
               <span>
                 {<img className="logo" src={Logo} alt="Logo" />}
-                <span className="logo-text">The Dental Studio</span>
+                {/* <span className="logo-text">The Dental Studio</span> */}
               </span>
             </Link>
           </NavbarBrand>
