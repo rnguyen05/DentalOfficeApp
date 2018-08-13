@@ -64,7 +64,7 @@ const App = () => (
       <Route exact path="/signup" component={Signup} />
       <AuthRoute exact path="/calendar" component={Calendar} />
 
-      <Route exact path="/testlogin" component={TestLogin} />
+      <Route path="/testlogin" component={TestLogin} />
       <Route exact path="/testmodal" component={TestModal} />
     </Switch>
   </Router>

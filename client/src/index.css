@@ -28,6 +28,10 @@ body {
   color: gray;
 }
 
+.login-bg {
+  background-color: black;
+}
+
 .nav {
   padding-top: 10px;
 }

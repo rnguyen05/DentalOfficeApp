@@ -13,7 +13,7 @@ import {
 } from "reactstrap";
 // import "./signup.css";
 // import "../../index.css";
-import Home from "../Home";
+import Navbar from "../Navbar";
 import Footer from "../Footer";
 
 class Signup extends Component {
@@ -53,68 +53,74 @@ class Signup extends Component {
   }
   render() {
     return (
-      <div>
-        <Home />
-        <h2 className="clearfix clear-top text-center">User Login</h2>
-        <br />
-        {this.state.success && <p>Welcome!</p>}
-        <Container id="login-form">
-          <Col className="col-12">
-            <Container>
+      <div id="id-login">
+        <Navbar />
+        <Row className="login-bg">
+          <Container>
+            <h2 className="h2-white clearfix clear-top text-center">
+              User Login
+            </h2>
+            <br />
+            {this.state.success && <p>Welcome!</p>}
+            <Container id="login-form">
               <Col className="col-12">
-                <p>Facebook login</p>
-                <p>Google login</p>
-                <p>Twitter login</p>
-                <p>Set state for Signup to show on the same login page</p>
+                <Container>
+                  <Col className="col-12">
+                    <p>Facebook login</p>
+                    <p>Google login</p>
+                    <p>Twitter login</p>
+                    <p>Set state for Signup to show on the same login page</p>
+                  </Col>
+                  <Form onSubmit={this.submitHandler}>
+                    <Row>
+                      <Col className="col-12">
+                        <FormGroup>
+                          <Label for="repeatemail">Email</Label>
+                          <Input
+                            type="email"
+                            name="email"
+                            id="email"
+                            placeholder="email@email.com"
+                            required
+                            onChange={this.changeHandler}
+                          />
+                          {this.state.errors &&
+                            this.state.errors.email && (
+                              <p>{this.state.errors.email.msg}</p>
+                            )}
+                        </FormGroup>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col className="col-12">
+                        <FormGroup>
+                          <Label for="password">Password</Label>
+                          <Input
+                            type="password"
+                            name="password"
+                            id="passwordreg"
+                            placeholder="password"
+                            required
+                            onChange={this.changeHandler}
+                          />
+                          {this.state.errors &&
+                            this.state.errors.password && (
+                              <p>{this.state.errors.password.msg}</p>
+                            )}
+                        </FormGroup>
+                      </Col>
+                    </Row>
+                    <Button className="contact" size="lg">
+                      Login
+                    </Button>
+                    <Link to="/signup#id-signup">Signup</Link>
+                  </Form>
+                </Container>
               </Col>
-              <Form onSubmit={this.submitHandler}>
-                <Row>
-                  <Col className="col-12">
-                    <FormGroup>
-                      <Label for="repeatemail">Email</Label>
-                      <Input
-                        type="email"
-                        name="email"
-                        id="email"
-                        placeholder="email@email.com"
-                        required
-                        onChange={this.changeHandler}
-                      />
-                      {this.state.errors &&
-                        this.state.errors.email && (
-                          <p>{this.state.errors.email.msg}</p>
-                        )}
-                    </FormGroup>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col className="col-12">
-                    <FormGroup>
-                      <Label for="password">Password</Label>
-                      <Input
-                        type="password"
-                        name="password"
-                        id="passwordreg"
-                        placeholder="password"
-                        required
-                        onChange={this.changeHandler}
-                      />
-                      {this.state.errors &&
-                        this.state.errors.password && (
-                          <p>{this.state.errors.password.msg}</p>
-                        )}
-                    </FormGroup>
-                  </Col>
-                </Row>
-                <Button className="contact" size="lg">
-                  Login
-                </Button>
-                <Link to="/signup#id-signup">Signup</Link>
-              </Form>
             </Container>
-          </Col>
-        </Container>
-        <Footer />
+            <Footer />
+          </Container>
+        </Row>
       </div>
     );
   }
