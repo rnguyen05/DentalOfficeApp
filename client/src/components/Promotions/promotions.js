@@ -22,9 +22,9 @@ export default class Promotions extends Component {
     return (
       <div className="section-promo" id="id-promo">
         <Container>
-          <h2 className=" h2 clearfix text-center">Special Promotions</h2>
+          <h2 className="h2 clearfix text-center">Special Promotions</h2>
           <br />
-          <h6>
+          <h6 className="h6">
             <ins>
               New Patient Special:
               <br />
@@ -34,17 +34,25 @@ export default class Promotions extends Component {
           <br />
           <hr className="style-hr" />
           <br />
-          <h6>
+          <h6 className="h6">
             <ins>Loyalty Program:</ins>
           </h6>
           <ul className="loyalty-content">
-            <li>2 Cleanings Per Year (2 per benefit year) </li>
-            <li>Additional Cleanings as Prescribed at a 50% discount.</li>
-            <li>Fluoride Treatment </li>
-            <li>X-Rays as Needed </li>
-            <li>Examinations (2 per benefit year)</li>
-            <li>One Emergency Exam (if necessary) </li>
-            <li>20% off all other dental services provided in our office.</li>
+            <li>
+              &bull;&nbsp;&nbsp;2 Cleanings Per Year (2 per benefit year){" "}
+            </li>
+            <li>
+              &bull;&nbsp;&nbsp;Additional Cleanings as Prescribed at a 50%
+              discount.
+            </li>
+            <li>&bull;&nbsp;&nbsp;Fluoride Treatment </li>
+            <li>&bull;&nbsp;&nbsp;X-Rays as Needed </li>
+            <li>&bull;&nbsp;&nbsp;Examinations (2 per benefit year)</li>
+            <li>&bull;&nbsp;&nbsp;One Emergency Exam (if necessary) </li>
+            <li>
+              &bull;&nbsp;&nbsp;20% off all other dental services provided in
+              our office.
+            </li>
           </ul>
 
           <p>
@@ -52,7 +60,7 @@ export default class Promotions extends Component {
               className="contact"
               color="secondary"
               size="md"
-              onClick={this.togglePopup.bind(this)}
+              href="/login/#id-login"
             >
               Sign Up Now
             </Button>
