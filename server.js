@@ -27,7 +27,7 @@ if (process.env.NODE_ENV == "production") {
     "mongodb://heroku_v0vnpbfj:73khkido42is3a68sivm9t3vpc@ds263707.mlab.com:63707/heroku_v0vnpbfj"
   );
 } else {
-  mongoose.connect("mongodb://localhost/DentalUserDB");
+  mongoose.connect("mongodb://localhost/DentalStudioDB");
 }
 const db = mongoose.connection;
 
@@ -45,6 +45,7 @@ db.once("open", function() {
 const Calendar = require("./server/models/calendar");
 const Schedule = require("./server/models/schedule");
 const User = require("./server/models/user");
+const Message = require("./server/models/message");
 
 // Send every request to the React app
 // Define any API routes before this runs

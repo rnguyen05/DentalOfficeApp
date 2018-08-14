@@ -44,6 +44,7 @@ class Signup extends Component {
   }
   submitHandler(e) {
     e.preventDefault();
+    console.log(this.state);
     axios.post("/api/user/signup", this.state).then(result => {
       console.log("result sent back from server: ", result);
       if (result.data.errors) {
