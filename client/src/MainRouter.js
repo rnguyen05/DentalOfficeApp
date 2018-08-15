@@ -13,10 +13,11 @@ import Promotions from "./components/Pages/promotions";
 import Appointments from "./components/Pages/appointments";
 import Signup from "./components/Pages/signup";
 import Calendar from "./components/Pages/Calendar";
+import MyAccount from "./components/Pages/myaccount";
 import LoginFb from "./components/Pages/loginfb";
 import Decode from "jwt-decode";
+import Login from "./components/Pages/login";
 
-import TestLogin from "./components/Pages/login";
 import TestModal from "./components/Pages/testmodal";
 
 //Function to check if there is a valid and not expired token in localStorage
@@ -63,8 +64,10 @@ const App = () => (
       <AuthRoute exact path="/appointments" component={Appointments} />
       <Route exact path="/signup" component={Signup} />
       <AuthRoute exact path="/calendar" component={Calendar} />
+      <AuthRoute exact path="/myaccount" component={MyAccount} />
+      <Route path="/login" component={Login} />
+
       <Route path="/loginfb" component={LoginFb} />
-      <Route path="/login" component={TestLogin} />
       <Route exact path="/testmodal" component={TestModal} />
     </Switch>
   </Router>

@@ -43,19 +43,13 @@ export default class Appointment extends Component {
       [e.target.name]: e.target.value
     });
   }
+
   submitHandler(e) {
     e.preventDefault();
     let appointmentDateConverted = this.state.appointmentDate._d.toString();
 
-    this.state = {
-      name: this.state.name,
-      email: this.state.email,
-      phone: this.state.phone,
-      message: this.state.message,
-      reason: this.state.reason,
-      appointmentDate: appointmentDateConverted,
-      success: false
-    };
+    this.state.appointmentDate = appointmentDateConverted;
+
     console.log("appointment_Date", this.state);
     axios.post("/api/appointment/new", this.state).then(result => {
       console.log("result sent back from server: ", result);

@@ -172,10 +172,17 @@ export default class Navibar extends Component {
               </DropdownItem>
               <DropdownItem divider />
               {checkAuth() ? (
-                <DropdownItem href="/" onClick={this.logout.bind(this)}>
-                  <i className="fas fa-sign-in-alt" />
-                  &nbsp;&nbsp;&nbsp;Logout
-                </DropdownItem>
+                <div>
+                  <DropdownItem href="/myaccount#id-myaccount">
+                    <i className="fas fa-sign-in-alt" />
+                    &nbsp;&nbsp;&nbsp;My Account
+                  </DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem href="/" onClick={this.logout.bind(this)}>
+                    <i className="fas fa-sign-in-alt" />
+                    &nbsp;&nbsp;&nbsp;Logout
+                  </DropdownItem>
+                </div>
               ) : (
                 <DropdownItem href="/login#id-login">
                   <i className="fas fa-sign-in-alt" />
