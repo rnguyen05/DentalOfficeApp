@@ -2,10 +2,29 @@ const express = require("express");
 const path = require("path");
 const http = require("http");
 const bodyParser = require("body-parser");
-const routes = require("./server/routes");
+
 const mongoose = require("mongoose");
+const passport = require("passport");
+const session = require("express-session");
+const routes = require("./server/routes");
 const app = express();
 const PORT = process.env.PORT || 8000;
+
+// Initialize Passport
+const initPassport = require("./server/config/init");
+initPassport(passport);
+
+// Enable CORS from client-side
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "PUT, GET, POST, DELETE, OPTIONS");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials"
+  );
+  res.header("Access-Control-Allow-Credentials", "true");
+  next();
+});
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,8 +34,6 @@ app.use(bodyParser.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-
-app.use(routes);
 
 // Database Configuration with Mongoose
 // ---------------------------------------------------------------------------------------------------------------
@@ -41,7 +58,20 @@ db.once("open", function() {
   console.log("Mongoose connection successful.");
 });
 
-// Import the Article model
+app.use(
+  session({
+    secret:
+      process.env.sessionKey || "SDADHKJHkdakdhaskdhkahiwheerqw412ue1edasa",
+    resave: true,
+    saveUninitialized: true
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(routes);
+
+// Import database models
 const Calendar = require("./server/models/calendar");
 const Schedule = require("./server/models/schedule");
 const User = require("./server/models/user");

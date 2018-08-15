@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Container, Col, Button } from "reactstrap";
+import { Container, Button } from "reactstrap";
 import "./promotions.css";
-import Popup from "../Modal";
+// import Popup from "../Modal";
 
 export default class Promotions extends Component {
   //Popup Modal

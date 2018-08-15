@@ -11,6 +11,7 @@ import {
   Input,
   Button
 } from "reactstrap";
+// import FacebookLogin from "react-facebook-login";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 
@@ -53,6 +54,8 @@ class Signup extends Component {
       });
     });
   }
+  //Facebook login
+
   render() {
     return (
       <div id="id-login">
@@ -68,16 +71,16 @@ class Signup extends Component {
               <Col className="col-12">
                 <Container>
                   <Col className="col-12 text-center">
-                    <a href="#">
+                    <a href="/loginfb">
                       {<img className="login-logo" src={Fb} alt="Facebook" />}
                     </a>
                     <br />
                     <a href="#">
-                      {<img className="login-logo" src={Gg} alt="Facebook" />}
+                      {<img className="login-logo" src={Gg} alt="Google" />}
                     </a>
                     <br />
                     <a href="#">
-                      {<img className="login-logo" src={Tw} alt="Facebook" />}
+                      {<img className="login-logo" src={Tw} alt="Twitter" />}
                     </a>
                     <br />
                   </Col>
