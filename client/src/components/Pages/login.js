@@ -89,7 +89,7 @@ class Signup extends Component {
                       <Col className="col-12">
                         <FormGroup>
                           <Label className="label" for="repeatemail">
-                            Email
+                            Email (For demo: email is demo@gmail.com)
                           </Label>
                           <Input
                             className="label"
@@ -111,7 +111,7 @@ class Signup extends Component {
                       <Col className="col-12">
                         <FormGroup>
                           <Label className="label" for="password">
-                            Password
+                            Password (For demo: password is "demo")
                           </Label>
                           <Input
                             className="label"

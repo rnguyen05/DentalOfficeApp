@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Container } from "reactstrap";
 import Home from "../Home";
 
 import Footer from "../Footer";
@@ -8,8 +9,10 @@ class Homepage extends Component {
     return (
       <div id="my-account">
         <Home />
-        <h2 className="h2 text-center"> My Account </h2>
-        <p className="p">Client account information goes here </p>
+        <Container>
+          <h2 className="h2 text-center"> My Account </h2>
+          <p className="p text-center">Client account information goes here </p>
+        </Container>
         <Footer />
       </div>
     );
