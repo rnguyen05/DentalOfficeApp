@@ -1,26 +1,46 @@
+@font-face {
+  font-family: "RobotoCondensed-Bold";
+  src: url("./fonts/RobotoCondensed-Bold.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PT_Sans-Narrow";
+  src: url("./fonts/PT_Sans-Narrow-Web-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FrancoisOne";
+  src: url("./fonts/FrancoisOne-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
 }
 .label {
-  font-family: "PT Sans Narrow", sans-serif;
+  font-family: "PT Sans Narrow";
   font-size: 15pt;
 }
 .label-white {
-  font-family: "PT Sans Narrow", sans-serif;
+  font-family: "PT Sans Narrow";
   font-size: 15pt;
   color: white;
 }
 
 .h2 {
-  font-family: "Francois One", sans-serif;
+  font-family: "RobotoCondensed-Bold";
   font-size: 25pt;
 }
 
 .h2-white {
-  font-family: "Francois One", sans-serif;
+  font-family: "RobotoCondensed-Bold";
   font-size: 25pt;
   color: white;
   margin-bottom: 10px;
@@ -47,19 +67,19 @@ body {
 }
 
 .h6 {
-  font-family: "Francois One", sans-serif;
+  font-family: "RobotoCondensed-Bold";
   font-size: 18pt;
 }
 
 .p {
-  font-family: "PT Sans Narrow", sans-serif;
+  font-family: "PT Sans Narrow";
   font-size: 15pt;
   padding: 10px;
   line-height: 1.5em;
 }
 
 .p-white {
-  font-family: "PT Sans Narrow", sans-serif;
+  font-family: "PT Sans Narrow";
   font-size: 15pt;
   color: white;
   padding: 10px;
@@ -79,7 +99,7 @@ body {
 }
 
 .li {
-  font-family: "PT Sans Narrow", sans-serif;
+  font-family: "PT Sans Narrow";
   font-size: 15pt;
 }
 

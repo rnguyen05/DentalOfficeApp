@@ -174,7 +174,7 @@ export default class Navibar extends Component {
               {checkAuth() ? (
                 <div>
                   <DropdownItem href="/myaccount#id-myaccount">
-                    <i className="fas fa-sign-in-alt" />
+                    <i className="fas fa-id-badge" />
                     &nbsp;&nbsp;&nbsp;My Account
                   </DropdownItem>
                   <DropdownItem divider />
