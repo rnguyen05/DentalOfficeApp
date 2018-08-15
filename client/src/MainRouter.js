@@ -13,7 +13,7 @@ import Promotions from "./components/Pages/promotions";
 import Appointments from "./components/Pages/appointments";
 import Signup from "./components/Pages/signup";
 import Calendar from "./components/Pages/Calendar";
-// import Login from "./components/Pages/login";
+import LoginFb from "./components/Pages/loginfb";
 import Decode from "jwt-decode";
 
 import TestLogin from "./components/Pages/login";
@@ -63,7 +63,7 @@ const App = () => (
       <AuthRoute exact path="/appointments" component={Appointments} />
       <Route exact path="/signup" component={Signup} />
       <AuthRoute exact path="/calendar" component={Calendar} />
-
+      <Route path="/loginfb" component={LoginFb} />
       <Route path="/login" component={TestLogin} />
       <Route exact path="/testmodal" component={TestModal} />
     </Switch>

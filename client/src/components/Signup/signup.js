@@ -11,7 +11,7 @@ import {
   Button
 } from "reactstrap";
 import "./signup.css";
-import Navbar from "../Navbar";
+// import Navbar from "../Navbar";
 
 class Signup extends Component {
   constructor(props) {

@@ -11,7 +11,7 @@ import "./navbar.css";
 import $ from "jquery";
 import Logo from "../img/logo.png";
 import Popup from "../Modal";
-import TestLogin from "../Pages/login";
+// import TestLogin from "../Pages/login";
 import decode from "jwt-decode";
 import axios from "axios";
 

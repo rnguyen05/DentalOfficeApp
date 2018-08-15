@@ -47,6 +47,13 @@ const userSchema = mongoose.Schema({
   zipcode: {
     type: String,
     required: true
+  },
+  fb: {
+    id: String,
+    access_token: String,
+    firstName: String,
+    lastName: String,
+    email: String
   }
 });
 
