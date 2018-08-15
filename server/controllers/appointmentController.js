@@ -1,6 +1,7 @@
 const Appointment = require("../models/appointment");
 const mongoose = require("mongoose");
 const express = require("express");
+const moment = require("moment");
 /*
 *
 */
@@ -14,9 +15,10 @@ module.exports = {
       name: req.body.name,
       phone: req.body.phone,
       reason: req.body.reason,
-      appointmentDate: req.body.appointmentDate,
+      appointmentDate: moment(req.body.appointmentDate).format("LLLL"),
       message: req.body.message
     });
+    console.log("newAppointment", newAppointment);
     newAppointment
       .save()
       .then(result => {
