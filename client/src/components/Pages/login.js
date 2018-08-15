@@ -45,7 +45,7 @@ class Signup extends Component {
         return this.setState(result.data);
       } else {
         localStorage.setItem("jwtAppToken", result.data.token);
-        window.location.href = "/";
+        window.location.href = "/myaccount";
       }
       return this.setState({
         userdata: result.data,

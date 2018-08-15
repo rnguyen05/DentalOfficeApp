@@ -11,6 +11,7 @@
   width: 150px;
   font-family: "Roboto Condensed", sans-serif;
   box-shadow: 0 6px 4px -3px #000000;
+  z-index: 10000;
 }
 
 /* .sidebtn:hover {
