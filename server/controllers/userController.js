@@ -57,7 +57,7 @@ exports.create = (req, res) => {
                     },
                     "ppaoidutslatned",
                     {
-                      expiresIn: "2h"
+                      expiresIn: "24h"
                     }
                   );
                   return res.status(200).json({
@@ -102,7 +102,7 @@ exports.findOne = (req, res) => {
             },
             "ppaoidutslatned",
             {
-              expiresIn: "2h"
+              expiresIn: "24h"
             }
           );
           return res.status(200).json({

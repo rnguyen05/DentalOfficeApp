@@ -35,7 +35,7 @@ export default class Sidebtns extends Component {
             size="lg"
             href="/appointments#id-appointments"
           >
-            Make an
+            Request an
             <br />
             Appointment
           </Button>

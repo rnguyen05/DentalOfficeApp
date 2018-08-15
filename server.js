@@ -76,6 +76,7 @@ const Calendar = require("./server/models/calendar");
 const Schedule = require("./server/models/schedule");
 const User = require("./server/models/user");
 const Message = require("./server/models/message");
+const Appointment = require("./server/models/appointment");
 
 // Send every request to the React app
 // Define any API routes before this runs

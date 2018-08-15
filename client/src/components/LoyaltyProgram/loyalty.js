@@ -36,8 +36,21 @@ const Loyalty = () => {
           </ul>
         </p>
         <p className="p loyaltyBtn">
-          <Button href="/signup" color="secondary" size="md">
+          <Button
+            href="appointments#id-appointments"
+            color="secondary"
+            size="md"
+          >
             Sign Up Now
+          </Button>
+          <span className="li">&nbsp;&nbsp;OR&nbsp;&nbsp;</span>
+          <Button
+            href="tel:8008888888"
+            className="contact"
+            color="secondary"
+            size="md"
+          >
+            Call Us Today
           </Button>
         </p>
       </Container>
