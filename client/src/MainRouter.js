@@ -17,6 +17,7 @@ import MyAccount from "./components/Pages/myaccount";
 import LoginFb from "./components/Pages/loginfb";
 import Decode from "jwt-decode";
 import Login from "./components/Pages/login";
+import Payment from "./components/Pages/payment";
 
 import TestModal from "./components/Pages/testmodal";
 
@@ -65,6 +66,7 @@ const App = () => (
       <Route exact path="/signup" component={Signup} />
       <AuthRoute exact path="/calendar" component={Calendar} />
       <AuthRoute exact path="/myaccount" component={MyAccount} />
+      <AuthRoute exact path="/payment" component={Payment} />
       <Route path="/login" component={Login} />
 
       <Route path="/loginfb" component={LoginFb} />
