@@ -33,6 +33,9 @@ const appointmentSchema = mongoose.Schema({
   updatedAt: {
     type: Date,
     default: Date.now()
+  },
+  userId: {
+    type: String
   }
 });
 

@@ -3,29 +3,23 @@
   margin-left: -25px;
   top: 20%;
   position: absolute;
+  z-index: 10000;
 }
 
 .sidebtn {
   margin-bottom: 5px;
   margin-left: -20px;
   width: 150px;
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Roboto Condensed";
   box-shadow: 0 6px 4px -3px #000000;
-  z-index: 10000;
 }
-
-/* .sidebtn:hover {
-  margin-bottom: 5px;
-  margin-left: -20px;
-  width: 150px;
-} */
 
 .call-today {
   margin-right: 10px;
   color: white;
   text-decoration: white;
   padding: 10px;
-  font-family: "PT Sans Narrow", sans-serif;
+  font-family: "PT Sans Narrow";
   font-size: 12pt;
   background-color: #80697e;
   border-radius: 0.2rem;
