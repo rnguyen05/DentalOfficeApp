@@ -1368,6 +1368,11 @@ body {
   #contact-form {
     margin: 0px 20% 20px 20%;
   }
+
+  #appointment-form {
+    margin: 0px 20% 20px 20%;
+  }
+
   /*Footer*/
   .section-footer {
     margin-top: 380px;

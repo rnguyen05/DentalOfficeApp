@@ -64,7 +64,7 @@ export default class Promotions extends Component {
               className="contact"
               color="secondary"
               size="md"
-              href="/login/#id-login"
+              href="/appointments#id-appointments"
             >
               Sign Up Now
             </Button>
