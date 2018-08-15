@@ -12,6 +12,7 @@ import {
 import "./appointments.css";
 import DatePicker from "react-datepicker";
 import moment from "moment";
+import Moment from "react-moment";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 
@@ -46,13 +47,7 @@ export default class Appointment extends Component {
 
   submitHandler(e) {
     e.preventDefault();
-    let appointmentDateConverted = this.state.appointmentDate._d.toString();
-
-    this.state.appointmentDate = appointmentDateConverted;
-
-    console.log("appointment_Date", this.state);
     axios.post("/api/appointment/new", this.state).then(result => {
-      console.log("result sent back from server: ", result);
       if (result.data.errors) {
         return this.setState(result.data);
       }
