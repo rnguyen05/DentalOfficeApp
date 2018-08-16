@@ -21,7 +21,7 @@ export default class MyAccount extends Component {
         <Container>
           <Container className="line text-center" />
           <Row className="account-header">
-            <Col className="col-12 col-md-3">
+            <Col className="col-12 col-md-6">
               <Card>
                 <CardBody>
                   <CardTitle className="my-header">My Profile</CardTitle>
@@ -55,7 +55,7 @@ export default class MyAccount extends Component {
                 </CardBody>
               </Card>
             </Col>
-            <Col className="col-12 col-md-3">
+            <Col className="col-12 col-md-6">
               <Card>
                 <CardBody>
                   <CardTitle className="my-header">My Appointments</CardTitle>
@@ -95,7 +95,10 @@ export default class MyAccount extends Component {
                 </CardBody>
               </Card>
             </Col>
-            <Col className="col-12 col-md-3">
+          </Row>
+          <Row className="space" />
+          <Row className="account-header">
+            <Col className="col-12 col-md-6">
               <Card>
                 <CardBody>
                   <CardTitle className="my-header">My Messages</CardTitle>
@@ -117,37 +120,37 @@ export default class MyAccount extends Component {
                 </CardBody>
               </Card>
             </Col>
-            <Col className="col-12 col-md-3">
+            <Col className="col-12 col-md-6">
               <Card>
                 <CardBody>
                   <CardTitle className="my-header">My Treatments</CardTitle>
                   <CardText>
                     <Row>
-                      <Col className="col-3 p-text">Date:</Col>
+                      <Col className="col-3 col-md-6 p-text">Date:</Col>
                       <Col className="p-text">02/10/2018</Col>
                     </Row>
                     <Row>
-                      <Col className="col-3 p-text">Note:</Col>
+                      <Col className="col-3 col-md-6  p-text">Note:</Col>
                       <Col className="p-text">Deep cleaned.</Col>
                     </Row>
                     <Col className="line" />
                     <Row>
-                      <Col className="col-3 p-text">Date:</Col>
+                      <Col className="col-3 col-md-6  p-text">Date:</Col>
                       <Col className="p-text">11/10/2017</Col>
                     </Row>
                     <Row>
-                      <Col className="col-3 p-text">Note:</Col>
+                      <Col className="col-3 col-md-6  p-text">Note:</Col>
                       <Col className="p-text">
                         Upper left wisdom tooth removed.
                       </Col>
                     </Row>
                     <Col className="line" />
                     <Row>
-                      <Col className="col-3 p-text">Date:</Col>
+                      <Col className="col-3 col-md-6  p-text">Date:</Col>
                       <Col className="p-text">05/20/2017</Col>
                     </Row>
                     <Row>
-                      <Col className="col-3 p-text">Note:</Col>
+                      <Col className="col-3 col-md-6  p-text">Note:</Col>
                       <Col className="p-text">
                         X-ray, clean and filled cavities.
                       </Col>
