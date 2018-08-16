@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container } from "reactstrap";
 import Home from "../Home";
-
+import MyAccount from "../MyAccount";
 import Footer from "../Footer";
 
 class Homepage extends Component {
@@ -11,7 +11,7 @@ class Homepage extends Component {
         <Home />
         <Container>
           <h2 className="h2 text-center"> My Account </h2>
-          <p className="p text-center">Client account information goes here </p>
+          <MyAccount />
         </Container>
         <Footer />
       </div>

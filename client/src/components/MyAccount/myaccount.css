@@ -1,0 +1,20 @@
+.my-account {
+  margin: auto;
+  width: 90%;
+}
+
+.my-header {
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+  font-family: "RobotoCondensed-Bold";
+  font-size: 16pt;
+}
+
+.line {
+  border-top: 1px solid lightgray;
+  padding-bottom: 20px;
+}
+
+.p-text {
+  font-size: 11pt;
+}

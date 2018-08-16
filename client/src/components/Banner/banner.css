@@ -4,4 +4,5 @@
 
 .img-style {
   min-width: 100%;
+  position: relative;
 }

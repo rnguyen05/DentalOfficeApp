@@ -27,8 +27,8 @@ export default class Sidebtns extends Component {
   }
   render() {
     return (
-      <div>
-        <Container className="appoint">
+      <div className="appoint">
+        <Container>
           <Button
             className="sidebtn"
             color="secondary"

@@ -71,15 +71,15 @@ class Signup extends Component {
               <Col className="col-12">
                 <Container>
                   <Col className="col-12 text-center">
-                    <a href="/loginfb">
+                    <a href="/">
                       {<img className="login-logo" src={Fb} alt="Facebook" />}
                     </a>
                     <br />
-                    <a href="#">
+                    <a href="/">
                       {<img className="login-logo" src={Gg} alt="Google" />}
                     </a>
                     <br />
-                    <a href="#">
+                    <a href="/">
                       {<img className="login-logo" src={Tw} alt="Twitter" />}
                     </a>
                     <br />
@@ -133,7 +133,11 @@ class Signup extends Component {
                       Login
                     </Button>
                     <Link className="label" to="/signup#id-signup">
-                      Signup
+                      Register
+                    </Link>
+                    &nbsp;&nbsp;
+                    <Link className="label" to="/">
+                      Close
                     </Link>
                   </Form>
                 </Container>

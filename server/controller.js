@@ -174,8 +174,5 @@ module.exports = function(app) {
   //   }
   //   app.get("/api/showposts", showPosts);
 
-  app.get("/api/logout", (req, res) => {
-    req.session.destroy();
-    res.send({ message: "Logged out!" });
-  });
+  
 };
