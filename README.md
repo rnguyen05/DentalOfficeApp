@@ -15,10 +15,10 @@ You can see the live project through this link: [DentalOffice](https://dentalstu
 
 ![Home.html](https://github.com/rnguyen05/DentalOfficeApp/blob/master/screens/screen1.jpg?raw=true)
 
-![Home.html]((https://github.com/rnguyen05/DentalOfficeApp/blob/master/screens/screen2.jpg?raw=true)
+![Home.html](https://github.com/rnguyen05/DentalOfficeApp/blob/master/screens/screen2.jpg?raw=true)
 
 * You can see the view of calendar in the following picture:
-![calendar.html]((https://github.com/rnguyen05/DentalOfficeApp/blob/master/screens/screen3.jpg?raw=true)
+![calendar.html](https://github.com/rnguyen05/DentalOfficeApp/blob/master/screens/screen3.jpg?raw=true)
 
 
 ## Technologies Used
