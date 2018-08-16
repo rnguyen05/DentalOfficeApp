@@ -37,6 +37,7 @@ const Loyalty = () => {
         </p>
         <p className="p loyaltyBtn">
           <Button
+            className="promo-button"
             href="appointments#id-appointments"
             color="secondary"
             size="md"
@@ -46,7 +47,7 @@ const Loyalty = () => {
           <span className="li">&nbsp;&nbsp;OR&nbsp;&nbsp;</span>
           <Button
             href="tel:8008888888"
-            className="contact"
+            className="promo-button"
             color="secondary"
             size="md"
           >

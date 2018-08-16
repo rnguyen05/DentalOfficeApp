@@ -36,16 +36,16 @@ const Footer = () => {
             <h6 className="clearfix text-center h6">Connect with Us</h6>
             <p className="p">
               <a href="facebook.com">
-                <i className="fab fa-facebook-square fa-4x mr-1" />
+                <i className="fab fa-facebook-square mr-1" />
               </a>
               <a href="twitter.com">
-                <i className="fab fa-twitter-square fa-4x mr-1" />
+                <i className="fab fa-twitter-square mr-1" />
               </a>
               <a href="google.com">
-                <i className="fab fa-google-plus-square fa-4x mr-1" />
+                <i className="fab fa-google-plus-square mr-1" />
               </a>
               <a href="linkedin.com">
-                <i className="fab fa-linkedin fa-4x" />
+                <i className="fab fa-linkedin" />
               </a>
             </p>
           </Col>

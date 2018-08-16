@@ -82,12 +82,13 @@ export default class Appointment extends Component {
                 ) : (
                   <div>
                     <Row>
-                      <Col>
+                      <Col className="col-12">
                         <FormGroup>
                           <Label className="label" for="name">
                             First Name & Last Name
                           </Label>
                           <Input
+                            className="form-control"
                             type="input"
                             name="name"
                             id="name"
@@ -98,12 +99,13 @@ export default class Appointment extends Component {
                           />
                         </FormGroup>
                       </Col>
-                      <Col>
+                      <Col className="col-12">
                         <FormGroup>
                           <Label className="label" for="email">
                             Email
                           </Label>
                           <Input
+                            className="form-control"
                             type="email"
                             name="email"
                             id="email"
@@ -116,12 +118,13 @@ export default class Appointment extends Component {
                       </Col>
                     </Row>
                     <Row>
-                      <Col>
+                      <Col className="col-12">
                         <FormGroup>
                           <Label className="label" for="email">
                             Phone Number
                           </Label>
                           <Input
+                            className="form-control"
                             type="input"
                             name="phone"
                             id="phone"
@@ -163,7 +166,9 @@ export default class Appointment extends Component {
                             name="reason"
                             onChange={this.changeHandler}
                           >
-                            <option value="">Select a Reason</option>
+                            <option value="" className="form-control">
+                              Select a Reason
+                            </option>
                             <option value="New Patient">New Patient</option>
                             <option value="Signup Loyalty Program">
                               Signup Loyalty Program
@@ -207,7 +212,7 @@ export default class Appointment extends Component {
                         onChange={this.changeHandler}
                       />
                     </FormGroup>
-                    <Button className="contact" size="lg">
+                    <Button className="promo-button" size="lg">
                       Request Appointment
                     </Button>
                   </div>

@@ -52,9 +52,9 @@ export default class Contact extends Component {
   render() {
     return (
       <div className="contact-section" id="id-contact">
-        <h2 className="h2 clearfix clear-top text-center">Contact Us</h2>
+        <div className="clear-top" />
+        <h2 className="h2 text-center">Contact Us</h2>
 
-        <span className="clearfix" />
         <Row>
           <Col className="col-12">
             <Container>
@@ -122,41 +122,17 @@ export default class Contact extends Component {
                         onChange={this.changeHandler}
                       />
                     </FormGroup>
-                    <Button className="contact" size="lg">
+                    <Button className="contact" size="sm">
                       Send Message
                     </Button>
                   </div>
                 )}
               </Form>
             </Container>
+            <Map />
           </Col>
-          <Col className="col-12 text-center">
-            <Row>
-              <Col className="contact-body">
-                <p>
-                  12345 Dental Studio Dr. #101 <br />
-                  Westwood Village, CA 90024.
-                  <br />
-                  Tel: (800)888 - 8888
-                </p>
-              </Col>
-              <Col className="contact-body">
-                <p>
-                  Monday - Friday: 9:00am - 6:00pm
-                  <br />
-                  Saturday: 10:00am - 5:00pm
-                  <br />
-                  Sunday: Closed
-                </p>
-              </Col>
-              <Col className="clearfix" />
-            </Row>
-            <Row>
-              <Col>
-                <Map />
-              </Col>
-            </Row>
-          </Col>
+
+          <Row />
         </Row>
       </div>
     );
