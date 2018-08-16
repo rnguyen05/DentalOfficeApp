@@ -1,12 +1,12 @@
 # Dental Studio App
 
-Dental Studio app is an application that built with many convenient features that helps dentists and clients communicate effectively. It has admin and client dashboards. Admin dashboard has full access to all dentist appointments, client appointments, client profiles where client dashboard is client credential based.
+Dental Studio application is an application that built with numerous advantageous features that enables dental practitioners and clients to impart successfully. It has administrator and client dashboards. Administrator dashboard has full access to all dental specialist appointments, customer appointments, customer profiles where customer dashboard is customer credential based.
 
 ## Application Features
 
 - Admin Dashboard:
 
-  - The dental office can access to admin dashboard to see all clients scheduled appointments by dentist, by daily, weekly and monthly. The calendar is built with many convenient features. It has drag and drops, filters, create, edit and delete appointments. The appointments can be moved around the calendar with drag and drop feature. The dashboard also has featured for office to communicate with clients effectively. The office can send messages to client email or client portal, can view, update client profiles.
+  - The dental office can access to admin dashboard to see all clients scheduled appointments by practitioners, by daily, weekly and monthly. The calendar is built with many convenient features. It has drag and drops, filters, create, edit and delete appointments. The appointments can be moved around the calendar with drag and drop feature. The dashboard also has featured for office to communicate with clients effectively. The office can send messages to client email or client portal, can view, update client profiles.
 
 - Client Dashboard
   - Clients can access their dashboard with their credentials. Clients can register an account or login with their Facebook, Google or Twitter account. There are for main features built to client dashboard: client profile, client appointments, client messages, client treatment history. Clients can update their profile, send a message to the office, confirm or update appointments, view treatment history with date and dentist note.
