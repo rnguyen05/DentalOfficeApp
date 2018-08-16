@@ -16,7 +16,7 @@ Dental Studio application is an application that built with numerous advantageou
 
 - Live Demo: [DentalStudio](https://dentalstudioapp.herokuapp.com/)
 
-- Video Demo:
+- Video Demo:<br/>
   [![DentalStudio](https://i9.ytimg.com/vi/UN62tpxPAKk/mq3.jpg?sqp=COjf1tsF&rs=AOn4CLBaiN02YBvyzt75pkgJ4dKdD7xfYw)](https://youtu.be/UN62tpxPAKk)
 
 - Screenshots
@@ -29,7 +29,7 @@ Dental Studio application is an application that built with numerous advantageou
 
 ![Home.html](https://github.com/rnguyen05/DentalOfficeApp/blob/master/screens/services.jpg?raw=true)
 
-![Home.html](https://github.com/rnguyen05/DentalOfficeApp/blob/master/screens/userregistation.jpg?raw=true)
+![Home.html](https://github.com/rnguyen05/DentalOfficeApp/blob/master/screens/userregistration.jpg?raw=true)
 
 ![Home.html](https://github.com/rnguyen05/DentalOfficeApp/blob/master/screens/login.jpg?raw=true)
 
