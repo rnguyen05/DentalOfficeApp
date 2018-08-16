@@ -1,6 +1,6 @@
 # DentalOffice
 
-## Requirement
+## Requirements
 - Build an application for a dental office that has following requirements:
     * Authentication: Users can be authenticated through Google and Facebook. Also, users can register to use custom authentication. Password should be encrypted to the database.
     * Making appointments: Different doctors work together in the same office. Customers should choose the specific doctor, then be able to see all available hours to pick. Customers should be able to see their schedules on the calendar and can modify their schedules.
@@ -39,6 +39,7 @@ You can see the live project through this link: [DentalOffice](https://dentalstu
 - Yelp! API
 - Client Treatment History
 - Two-factor Authentication
+- Live Chat feature
 
 
 ##Code Explanation
