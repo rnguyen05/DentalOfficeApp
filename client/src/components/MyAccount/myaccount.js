@@ -4,7 +4,6 @@ import {
   Row,
   Col,
   Card,
-  CardImg,
   CardText,
   CardBody,
   CardTitle,
@@ -21,19 +20,19 @@ export default class MyAccount extends Component {
         <Container>
           <Container className="line text-center" />
           <Row className="account-header">
-            <Col className="col-12 col-md-6">
+            <Col className="col-12 col-md-6 my-account-box">
               <Card>
                 <CardBody>
                   <CardTitle className="my-header">My Profile</CardTitle>
                   <CardText>
                     <Row>
-                      <Col className="col-4 p-text">Name:</Col>
+                      <Col className="col-4 col-md-3 p-text">Name:</Col>
                       <Col className="p-text">Demo Demo </Col>
                     </Row>
                   </CardText>
                   <CardText>
                     <Row>
-                      <Col className="col-4 p-text">Address:</Col>
+                      <Col className="col-4 col-md-3  p-text">Address:</Col>
                       <Col className="p-text">
                         12345 Wilshire Blvd. Westwood, CA 91234
                       </Col>
@@ -41,55 +40,61 @@ export default class MyAccount extends Component {
                   </CardText>
                   <CardText>
                     <Row>
-                      <Col className="col-4 p-text">Phone:</Col>
+                      <Col className="col-4 col-md-3 p-text">Phone:</Col>
                       <Col className="p-text">(213)777 - 8888 </Col>
                     </Row>
                   </CardText>
                   <CardText>
                     <Row>
-                      <Col className="col-4 p-text">Email:</Col>
+                      <Col className="col-4 col-md-3 p-text">Email:</Col>
                       <Col className="p-text">demo@gmail.com</Col>
                     </Row>
                   </CardText>
-                  <Button color="warning">Update</Button>
+                  <Button className="my-account-btn" color="warning">
+                    Update
+                  </Button>
                 </CardBody>
               </Card>
             </Col>
-            <Col className="col-12 col-md-6">
+            <Col className="col-12 col-md-6  my-account-box">
               <Card>
                 <CardBody>
                   <CardTitle className="my-header">My Appointments</CardTitle>
 
                   <CardText>
                     <Row>
-                      <Col className="col-4 p-text">Date:</Col>
+                      <Col className="col-4 col-md-3 p-text">Date:</Col>
                       <Col className="p-text">08/17/2018 </Col>
                     </Row>
                   </CardText>
                   <CardText>
                     <Row>
-                      <Col className="col-4 p-text">Time:</Col>
+                      <Col className="col-4 col-md-3 p-text">Time:</Col>
                       <Col className="p-text">2:30PM</Col>
                     </Row>
                   </CardText>
                   <CardText>
                     <Row>
-                      <Col className="col-4 p-text">Status:</Col>
+                      <Col className="col-4 col-md-3 p-text">Status:</Col>
                       <Col className="p-text">Open</Col>
                     </Row>
                   </CardText>
                   <CardText>
                     <Row>
-                      <Col className="col-4 p-text">Reason:</Col>
+                      <Col className="col-4 col-md-3 p-text">Reason:</Col>
                       <Col className="p-text">Cleaning</Col>
                     </Row>
                   </CardText>
                   <Row>
                     <Col>
-                      <Button color="primary">Confirm</Button>
+                      <Button className="my-account-btn" color="primary">
+                        Confirm
+                      </Button>
                     </Col>
                     <Col>
-                      <Button color="warning">Update</Button>
+                      <Button className="my-account-btn" color="warning">
+                        Update
+                      </Button>
                     </Col>
                   </Row>
                 </CardBody>
@@ -98,17 +103,17 @@ export default class MyAccount extends Component {
           </Row>
           <Row className="space" />
           <Row className="account-header">
-            <Col className="col-12 col-md-6">
+            <Col className="col-12 col-md-6  my-account-box">
               <Card>
                 <CardBody>
                   <CardTitle className="my-header">My Messages</CardTitle>
                   <CardText>
                     <Row>
-                      <Col className="col-3 p-text">Date:</Col>
+                      <Col className="col-3 col-md-3 p-text">Date:</Col>
                       <Col className="p-text">08/10/2018</Col>
                     </Row>
                     <Row>
-                      <Col className="col-3 p-text">Note:</Col>
+                      <Col className="col-3 col-md-3 p-text">Note:</Col>
                       <Col className="p-text">
                         Please arrive 30 minutes prior to appointment time.
                         Thank you!
@@ -116,48 +121,48 @@ export default class MyAccount extends Component {
                     </Row>
                     <Col className="line" />
                   </CardText>
-                  <Button>View More...</Button>
+                  <Button className="my-account-btn">View More...</Button>
                 </CardBody>
               </Card>
             </Col>
-            <Col className="col-12 col-md-6">
+            <Col className="col-12 col-md-6  my-account-box">
               <Card>
                 <CardBody>
                   <CardTitle className="my-header">My Treatments</CardTitle>
                   <CardText>
                     <Row>
-                      <Col className="col-3 col-md-6 p-text">Date:</Col>
+                      <Col className="col-3  col-md-3 p-text">Date:</Col>
                       <Col className="p-text">02/10/2018</Col>
                     </Row>
                     <Row>
-                      <Col className="col-3 col-md-6  p-text">Note:</Col>
+                      <Col className="col-3  col-md-3  p-text">Note:</Col>
                       <Col className="p-text">Deep cleaned.</Col>
                     </Row>
                     <Col className="line" />
                     <Row>
-                      <Col className="col-3 col-md-6  p-text">Date:</Col>
+                      <Col className="col-3  col-md-3  p-text">Date:</Col>
                       <Col className="p-text">11/10/2017</Col>
                     </Row>
                     <Row>
-                      <Col className="col-3 col-md-6  p-text">Note:</Col>
+                      <Col className="col-3  col-md-3  p-text">Note:</Col>
                       <Col className="p-text">
                         Upper left wisdom tooth removed.
                       </Col>
                     </Row>
                     <Col className="line" />
                     <Row>
-                      <Col className="col-3 col-md-6  p-text">Date:</Col>
+                      <Col className="col-3  col-md-3  p-text">Date:</Col>
                       <Col className="p-text">05/20/2017</Col>
                     </Row>
                     <Row>
-                      <Col className="col-3 col-md-6  p-text">Note:</Col>
+                      <Col className="col-3  col-md-3  p-text">Note:</Col>
                       <Col className="p-text">
                         X-ray, clean and filled cavities.
                       </Col>
                     </Row>
                     <Col className="line" />
                   </CardText>
-                  <Button>View More...</Button>
+                  <Button className="my-account-btn">View More...</Button>
                 </CardBody>
               </Card>
             </Col>

@@ -61,17 +61,17 @@ export default class Promotions extends Component {
           </ul>
           <p className="p">
             <Button
-              className="contact"
+              className="promo-button"
               color="secondary"
               size="md"
               href="/appointments#id-appointments"
             >
               Sign Up Now
             </Button>
-            <span className="li">OR&nbsp;&nbsp;</span>
+            <span className="li">&nbsp;&nbsp;OR&nbsp;&nbsp;</span>
             <Button
               href="tel:8008888888"
-              className="contact"
+              className="promo-button"
               color="secondary"
               size="md"
             >

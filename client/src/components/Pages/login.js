@@ -13,7 +13,7 @@ import {
 } from "reactstrap";
 // import FacebookLogin from "react-facebook-login";
 import Navbar from "../Navbar";
-import Footer from "../Footer";
+// import Footer from "../Footer";
 
 import Fb from "../img/logos/facebook.png";
 import Gg from "../img/logos/google.png";
@@ -61,7 +61,7 @@ class Signup extends Component {
       <div id="id-login">
         <Navbar />
         <Row className="login-bg">
-          <Container>
+          <Container className="login-container">
             <h2 className="h2-white clearfix clear-top text-center">
               User Login
             </h2>
@@ -89,7 +89,8 @@ class Signup extends Component {
                       <Col className="col-12">
                         <FormGroup>
                           <Label className="label" for="repeatemail">
-                            Email (For demo: email is demo@gmail.com)
+                            Email <br />
+                            (For demo: demo@gmail.com)
                           </Label>
                           <Input
                             className="label"
@@ -111,7 +112,8 @@ class Signup extends Component {
                       <Col className="col-12">
                         <FormGroup>
                           <Label className="label" for="password">
-                            Password (For demo: password is "demo")
+                            Password <br />
+                            (For demo: "demo")
                           </Label>
                           <Input
                             className="label"
@@ -129,9 +131,10 @@ class Signup extends Component {
                         </FormGroup>
                       </Col>
                     </Row>
-                    <Button className="contact" size="lg">
+                    <Button className="promo-button" size="lg">
                       Login
                     </Button>
+                    &nbsp;&nbsp;
                     <Link className="label" to="/signup#id-signup">
                       Register
                     </Link>
@@ -143,7 +146,6 @@ class Signup extends Component {
                 </Container>
               </Col>
             </Container>
-            <Footer />
           </Container>
         </Row>
       </div>
