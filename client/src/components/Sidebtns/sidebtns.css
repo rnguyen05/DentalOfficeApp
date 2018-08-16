@@ -1,15 +1,16 @@
 .appoint {
-  position: fixed;
-  margin-left: -25px;
+  /* position: fixed; */
+  margin-left: -5px;
   top: 20%;
   position: absolute;
   z-index: 10000;
+  width: 300px;
 }
 
 .sidebtn {
   margin-bottom: 5px;
-  margin-left: -20px;
-  width: 150px;
+  margin-left: -10px;
+  width: 170px;
   font-family: "Roboto Condensed";
   box-shadow: 0 6px 4px -3px #000000;
 }
