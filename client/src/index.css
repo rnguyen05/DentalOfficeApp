@@ -2544,6 +2544,7 @@ body {
   .p-text {
     font-size: 15pt;
     font-family: "PT Sans Narrow";
+    line-height: 1.5rem;
   }
 
   .space {
@@ -2623,14 +2624,18 @@ body {
     margin-bottom: 20px;
   }
 
+  .p-services {
+    margin-bottom: 15px;
+  }
+
   .services-icon {
     width: 30%;
   }
 
-/*Loyalty Program */
-.loyaltyBtn {
-  margin-bottom: 40px;
-}
+  /*Loyalty Program */
+  .loyaltyBtn {
+    margin-bottom: 40px;
+  }
 
   /* Testimonials */
   Carousel {
@@ -2699,7 +2704,6 @@ body {
   }
 }
 /* End of @media only screen and (max-width: 768px) */
-
 
 @media (width: 667px) {
   /*-------------- Prevent Horizontal swipe ------------*/
@@ -2998,8 +3002,6 @@ body {
   }
 }
 /* End of @media only screen and (max-width: 768px) */
-
-
 
 @media (width: 736px) {
   /*-------------- Prevent Horizontal swipe ------------*/
