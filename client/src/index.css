@@ -2366,7 +2366,7 @@ body {
 }
 /* End of @media only screen and (max-width: 768px) */
 
-@media (min-width: 1440px) {
+@media (min-width: 1439.5px) {
   /*-------------- Prevent Horizontal swipe ------------*/
   html,
   body {
@@ -2586,12 +2586,13 @@ body {
 
   .dentist-img {
     padding-top: 18px;
-    width: 305px;
+    width: 300px;
     float: left;
   }
   .wrap-content {
-    display: block;
+    display: inline-block;
     background-color: black;
+    margin: 0px 0px 20px 0px;
   }
   .wrap-paragraph {
     text-align: justify;
@@ -2618,9 +2619,18 @@ body {
     margin-bottom: 20px;
   }
   /*Our Services*/
+  #id-services {
+    margin-bottom: 20px;
+  }
+
   .services-icon {
     width: 30%;
   }
+
+/*Loyalty Program */
+.loyaltyBtn {
+  margin-bottom: 40px;
+}
 
   /* Testimonials */
   Carousel {
